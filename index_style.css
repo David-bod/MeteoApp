@@ -12,8 +12,31 @@ html{
     font-weight: bolder;
 }
 
+#suggestions{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#suggestions li{
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 0.7em;
+}
+
+#s1, #s2, #s3, #s4, #s5, #s6, #s7, #s8{
+    text-decoration: none;
+    color: black;
+}
+
+#s1, #s2, #s3, #s4, #s5, #s6, #s7, #s8, #s9:active{
+    text-decoration: none;
+    color: black;
+}
+
 h2{
     margin-bottom: 15px;
+    color: white;
 }
 
 header, main, footer{
@@ -33,7 +56,7 @@ li{
 
 .container_weather{
     border: 2px solid rgb(0, 0, 0);
-    background-color: ghostwhite;
+    background-color: rgb(186, 186, 207);
     border-radius: 10px;
     padding: 15px;
     width: 25%;
@@ -43,11 +66,12 @@ li{
 
 .container_legend{
     border: 2px solid rgb(0, 0, 0);
-    background-color: ghostwhite;
+    background-color: rgb(0, 0, 0);
     border-radius: 10px;
     padding-right: 15px;
     padding-left: 15px;
     padding-top: 5px;
+    padding-bottom: 5px;
     width: 25%;
     min-width: 300px;
     font-size: 1.1em;
@@ -106,4 +130,14 @@ li{
 
 #E{
     color: #8E44AD;
+}
+
+/* oups */
+
+.oups{
+    color: red;
+    background-color: darkgrey;
+    margin-top: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }

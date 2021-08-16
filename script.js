@@ -2,7 +2,17 @@ let url = "http://api.openweathermap.org/data/2.5/weather?q=" + localStorage.get
 
 choice.value = localStorage.getItem("city");
 
-fonctionGetApi();
+if(localStorage.getItem("city") == null){
+    const oups = document.createElement("h3");
+    oups.className = "oups";
+    oups.innerHTML = "Oups, quelque chose fonctionne mal ! Selectionnez une ville pour résoudre le problème.";
+    const main = document.getElementById("main");
+
+    main.appendChild(oups);
+}else{
+    fonctionGetApi();
+
+}
 
 function fonctionGetApi(){
     getApiData = new Promise((resolve) => {
@@ -13,7 +23,7 @@ function fonctionGetApi(){
                 console.log(this.response);
                 fonctionRecupData();
             } else {
-                reject = console.log('Erreur dans le chargement de la page')
+                reject = console.log("Erreur dans le chargement de la page. Essayez de selectionner une ville. Si le problème persiste, contactez l'admin du site.");
                 return
             }
         }
@@ -76,7 +86,18 @@ async function fonctionRecupData(){
 
 
 function choiceCity(){
+    localStorage.removeItem("city");
     const choice = document.getElementById("choice");
     localStorage.setItem("city", choice.value);
-    console.log("Lancement getApi");
+    console.log("valeur city initialisée");
+}
+
+function suggestionsChoice(){
+    localStorage.removeItem("city");
+    const Suggestions1 = document.getElementById("Value1");
+
+        localStorage.setItem("city", "nantes");
+        fonctionGetApi();
+        console.log("city selectionnée");
+        location.reload();
 }
