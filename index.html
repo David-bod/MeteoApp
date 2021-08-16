@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Application météo">
+    <link rel="stylesheet" href="index_style.css">
+        
+    <title>Application météo</title>
+</head>
+<body>
+    <header>
+        <ul id="suggestions">
+            <a id="s1"><li></li></a>
+            <a id="s2"><li></li></a>
+            <a id="s3"><li></li></a>
+            <a id="s4"><li></li></a>
+            <a id="s5"><li></li></a>
+            <a id="s6"><li></li></a>
+            <a id="s7"><li></li></a>
+            <a id="s8"><li></li></a>
+            <a id="s9"><li></li></a>
+        </ul>
+        <h1 id="ville"></h1>
+        <form>
+            <input type="text" name="choice_city" value="Paris" id="choice">
+            <button onclick="choiceCity()" name="submit" value="Rechercher la ville" class="button">Rechercher</button>
+        </form>
+    </header>
+    <main>
+        <div class="container">
+            <ul class="container_weather">
+                <li id="li1"></li>
+                <li id="li5"></li>
+                <li id="li6"></li>
+                <li id="li7"></li>
+                <li id="li8"></li>
+            </ul>
+        </div>
+        <div class="container">
+            <ul class="container_weather">
+                <li id="li2"></li>
+                <li id="li4"></li>
+                <li id="li3"></li>
+            </ul>
+        </div>
+        <div class="container_legend">
+            <h2>Légende : </h2>
+            <div id="line_legend">
+                <p id="TB">Très bien</p>
+                <p id="B">Bien</p>
+                <p id="AB">Assez bien</p>
+                <p id="MO">Moyen</p>
+                <p id="MA">Mauvais</p>
+                <p id="TM">Très mauvais</p>
+                <p id="E">Extrème</p>
+            </div>
+        </div>
+        <button onclick="fonctionGetApi()" class="button">Actualiser les données</button>
+    </main>
+    <footer>
+
+    </footer>
+    <script type="text/javascript" src="script.js"></script> 
+</body>
+</html>
