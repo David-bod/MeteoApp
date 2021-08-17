@@ -84,15 +84,15 @@ async function fonctionRecupData(){ // RECUPERATION DES DONNEES
     weatherWindSpeed.innerHTML = "Vitesse du vent : " + resultatSpeed + " km/h";
     if(resultatSpeed >= 0 && resultatSpeed <= 20){
         weatherWindSpeed.style.color = "#196F3D";
-    }else if(resultatSpeed >= 21 && resultatSpeed <= 40){
+    }else if(resultatSpeed >= 20.01 && resultatSpeed <= 40){
         weatherWindSpeed.style.color = "#2ECC71";
-    }else if(resultatSpeed >= 41 && resultatSpeed <= 70){
+    }else if(resultatSpeed >= 40.01 && resultatSpeed <= 70){
         weatherWindSpeed.style.color = "#F7DC6F";
-    }else if(resultatSpeed >= 71 && resultatSpeed <= 90){
+    }else if(resultatSpeed >= 70.01 && resultatSpeed <= 90){
         weatherWindSpeed.style.color = "#EB984E";
-    }else if(resultatSpeed >= 91 && resultatSpeed <= 110){
+    }else if(resultatSpeed >= 90.01 && resultatSpeed <= 110){
         weatherWindSpeed.style.color = "#BA4A00";
-    }else if(resultatSpeed >= 111 && resultatSpeed <= 130){
+    }else if(resultatSpeed >= 110.01 && resultatSpeed <= 130){
         weatherWindSpeed.style.color = "#E74C3C";
     }else{
         weatherWindSpeed.style.color = "#8E44AD";
