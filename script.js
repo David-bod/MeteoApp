@@ -2,53 +2,60 @@ let url = "http://api.openweathermap.org/data/2.5/weather?q=" + localStorage.get
 
 choice.value = localStorage.getItem("city");
 
-if(localStorage.getItem("city") == null){
+if(localStorage.getItem("city") == null){ // SI LE LOCALSTORAGE VIDE
     const oups = document.createElement("h3");
     oups.className = "oups";
     oups.innerHTML = "Oups, quelque chose fonctionne mal ! Selectionnez une ville pour résoudre le problème.";
     const main = document.getElementById("main");
-
     main.appendChild(oups);
 }else{
     fonctionGetApi();
 }
 
 function fonctionGetApi(){
-    getApiData = new Promise((resolve) => {
-        var getData = new XMLHttpRequest()
-        getData.onload = function () {
-            if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-                resolve(JSON.parse(this.responseText))
-                console.log(this.response);
-                fonctionRecupData();
-            } else {
-                reject = console.log("Erreur dans le chargement de la page. Essayez de selectionner une ville. Si le problème persiste, contactez l'admin du site.");
-                return
+    if(localStorage.getItem("city") == null){ // SI LE LOCALSTORAGE NE CONTIENT PAS DE VILLE
+        const oups = document.createElement("h3");
+        oups.className = "oups";
+        oups.innerHTML = "Sélectinonnez une ville avant d'acualiser les données.";
+        const main = document.getElementById("main");
+        main.appendChild(oups);
+    }else{ // SINON RECUPERER LES DONNEES DE LA VILLE
+        getApiData = new Promise((resolve) => {
+            var getData = new XMLHttpRequest()
+            getData.onload = function () {
+                if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+                    resolve(JSON.parse(this.responseText))
+                    console.log(this.response);
+                    fonctionRecupData();
+                } else {
+                    reject = console.log("Erreur dans le chargement de la page. Essayez de selectionner une ville. Si le problème persiste, contactez l'admin du site.");
+                    return
+                }
             }
-        }
-        getData.open("GET", url);
-        getData.send();
-    });
-}
+            getData.open("GET", url);
+            getData.send();
+        });
+    }
+    }
 
-async function fonctionRecupData(){
+async function fonctionRecupData(){ // RECUPERATION DES DONNEES
     const recupDataJSON = await getApiData;
 
-    const villeData = document.getElementById("ville"); // city
+    const villeData = document.getElementById("ville"); // AFFICHAGE VILLE ET PAYS
     villeData.innerHTML = recupDataJSON.name + ", " + recupDataJSON.sys.country;
 
-    const weatherClouds = document.getElementById("li1"); // type of clouds + description
+    const weatherClouds = document.getElementById("li1"); // TYPE DE NUAGE ET DESCRIPTION DETAILLES
     weatherClouds.innerHTML = "Le temps est actuellement : " + recupDataJSON.weather[0].description;
 
-    const weatherTemperature = document.getElementById("li2"); // temperature
+    const weatherTemperature = document.getElementById("li2"); // TEMPERATURE + CONVERSION EN CELCIUS
     let tempBrut = recupDataJSON.main.temp - 273.15;
     let resultat = tempBrut.toFixed(2);
     weatherTemperature.innerHTML = "Température : " + resultat + "°C";
 
-    const weatherPressure = document.getElementById("li3"); // pressure
+    const weatherPressure = document.getElementById("li3"); // PRESSION ATMOSHPERIQUE
     weatherPressure.innerHTML = "Pression atmosphérique : " + recupDataJSON.main.pressure + " hPa";
 
-    const weatherHumidity = document.getElementById("li4"); // Humidity of air
+    const weatherHumidity = document.getElementById("li4"); // TAUX HUMIDITE DANS L'AIR
     weatherHumidity.innerHTML = "Humidité dans l'air : " + recupDataJSON.main.humidity + "%";
     if(recupDataJSON.main.humidity >= 10 && recupDataJSON.main.humidity <= 70){
         weatherHumidity.style.color = "#196F3D";
@@ -56,13 +63,13 @@ async function fonctionRecupData(){
         weatherHumidity.style.color = "#EB984E";
     }
 
-    const weatherVisibility = document.getElementById("li5"); // Visibility in meters
+    const weatherVisibility = document.getElementById("li5"); // VISIBILITE EN METRES
     weatherVisibility.innerHTML = "Visibilité : " + recupDataJSON.visibility + " mètres";
 
-    const weatherCloudsPercentage = document.getElementById("li6");
+    const weatherCloudsPercentage = document.getElementById("li6"); // POUCENTAGE DE NUAGES
     weatherCloudsPercentage.innerHTML = "Ciel couvert à : " + recupDataJSON.clouds.all + "%";
 
-    const weatherWindSpeed = document.getElementById("li7");
+    const weatherWindSpeed = document.getElementById("li7"); // VITESSE DU VENT
     let speedBrut = recupDataJSON.wind.speed * 3.6;
     let resultatSpeed = speedBrut.toFixed(2);
     weatherWindSpeed.innerHTML = "Vitesse du vent : " + resultatSpeed + " km/h";
@@ -82,28 +89,90 @@ async function fonctionRecupData(){
         weatherWindSpeed.style.color = "#8E44AD";
     }
 
-    if(recupDataJSON.weather[0].description === "couvert"){ // à finir suivant les indications de l'api
+    if(recupDataJSON.weather[0].description === "couvert" || recupDataJSON.weather[0].description === "nuageux"){ // AFFICHAGE DES LOGOS
         const typeOfCloud = document.getElementById("3");
-        typeOfCloud.title = "Actuellement couvert";
+        typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
         typeOfCloud.style.color = "grey";
-        typeOfCloud.style.fontSize = "1.5em";
+        typeOfCloud.style.fontSize = "2em";
+        typeOfCloud.style.transition = "2s";
     }else if(recupDataJSON.weather[0].description === "ciel dégagé"){
         const typeOfCloud = document.getElementById("5");
-        typeOfCloud.title = "Actuellement ciel dégagé";
+        typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
         typeOfCloud.style.color = "#FFD000";
-        typeOfCloud.style.fontSize = "1.5em";
-    }else if(recupDataJSON.weather[0].description === "partiellement nuageux"){
+        typeOfCloud.style.fontSize = "2em";
+        typeOfCloud.style.transition = "2s";
+    }else if(recupDataJSON.weather[0].description === "partiellement nuageux" || recupDataJSON.weather[0].description === "peu nuageux"){
         const typeOfCloud = document.getElementById("4");
-        typeOfCloud.title = "Actuellement partiellement nuageux";
+        typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
         typeOfCloud.style.color = "#C3B46E";
-        typeOfCloud.style.fontSize = "1.5em";
+        typeOfCloud.style.fontSize = "2em";
+        typeOfCloud.style.transition = "2s";
     }
+
+    if(localStorage.getItem("fav1") != null && localStorage.getItem("fav2") == null){ // VERIFICATION ET AFFICHAGE FAVORIS
+        const fav1 = document.getElementById("fav1");
+        fav1.innerHTML = localStorage.getItem("fav1");
+    }else if(localStorage.getItem("fav1") != null && localStorage.getItem("fav2") != null){
+        const fav1 = document.getElementById("fav1");
+        fav1.innerHTML = localStorage.getItem("fav1");
+        const fav2 = document.getElementById("fav2");
+        fav2.innerHTML = localStorage.getItem("fav2");
+    }else if(localStorage.getItem("fav1") == null && localStorage.getItem("fav2") != null){
+        const fav2 = document.getElementById("fav2");
+        fav2.innerHTML = localStorage.getItem("fav2");
+    }
+
 }
 
 
-function choiceCity(){
+function choiceCity(){ // CHOIX DE LA VILLE DANS LE CHAMPS TEXTE
     localStorage.removeItem("city");
     const choice = document.getElementById("choice");
     localStorage.setItem("city", choice.value);
     console.log("valeur city initialisée");
+}
+
+function clearLocalStorage(){ // NETTOYER LE LOCALSTORAGE
+    if(localStorage.getItem("city") == null){ // SI C'EST DEJA VIDE
+        const oups = document.createElement("h3");
+        oups.className = "oups";
+        oups.innerHTML = "Le cache est déjà vide.";
+        const main = document.getElementById("main");
+        main.appendChild(oups);
+    }else{ // SI LA VALEUR CITY EST ENCORE PLEINE
+        localStorage.removeItem("city");
+        location.reload();
+    }
+}
+
+function ajouterFavoris(){ // FONCTION AJOUTER DES FAVORIS
+    if(localStorage.getItem("fav1") == null && localStorage.getItem("fav2") != localStorage.getItem("city")){
+        localStorage.setItem("fav1", choice.value);
+        location.reload();
+    }else if(localStorage.getItem("fav1") != null && localStorage.getItem("fav2") == null && localStorage.getItem("fav1") != localStorage.getItem("city")){
+        localStorage.setItem("fav2", choice.value);
+        location.reload();
+    }else if(localStorage.getItem("fav1") != null && localStorage.getItem("fav2") != null){
+        const oups = document.createElement("h3");
+        oups.className = "oups";
+        oups.innerHTML = "Vous avez atteint le nombre maximum de favoris.";
+        const main = document.getElementById("main");
+        main.appendChild(oups);
+    }else if(localStorage.getItem("fav1") == localStorage.getItem("city") || localStorage.getItem("fav2") == localStorage.getItem("city")){
+        const oups = document.createElement("h3");
+        oups.className = "oups";
+        oups.innerHTML = "Cette ville est déjà dans votre liste.";
+        const main = document.getElementById("main");
+        main.appendChild(oups);
+    }
+}
+
+function deleteFav1(){ // SUPPRIMER LE FAVORIS 1
+    localStorage.removeItem("fav1");
+    location.reload();
+}
+
+function deleteFav2(){ // SUPPRIMER LE FAVORIS 2
+    localStorage.removeItem("fav2");
+    location.reload();
 }

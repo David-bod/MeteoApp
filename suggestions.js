@@ -1,13 +1,13 @@
-function nantes(){
+function cannes(){
     localStorage.removeItem("city");
-    localStorage.setItem("city", "nantes");
+    localStorage.setItem("city", "Cannes");
     fonctionGetApi();
     location.reload();
 }
 
 function marseille(){
     localStorage.removeItem("city");
-    localStorage.setItem("city", "marseille");
+    localStorage.setItem("city", "Marseille");
     fonctionGetApi();
     location.reload();
 }

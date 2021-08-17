@@ -76,7 +76,7 @@ li{
     padding-bottom: 5px;
     width: 25%;
     min-width: 300px;
-    font-size: 1.1em;
+    font-size: 1em;
     margin: auto;
 }
 
@@ -92,6 +92,21 @@ li{
     width: 100px;
 }
 
+.favContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.favContainer li, .favContainer p{
+    margin-right: 10px;
+}
+
+.favContainer a{
+    text-decoration: none;
+    margin-top: 10px;
+}
+
 .button{
     margin-top: 10px;
     border-radius: 5px;
@@ -100,6 +115,20 @@ li{
 }
 
 .button:hover{
+    background-color: rgb(167, 233, 167);
+    font-size: 0.85em;
+    transition: 0.5s;
+}
+
+.buttonFav{
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 175px;
+    height: 25px;
+    background-color: #F7DC6F;
+}
+
+.buttonFav:hover{
     background-color: rgb(167, 233, 167);
     font-size: 0.85em;
     transition: 0.5s;
@@ -140,8 +169,12 @@ li{
 
 .oups{
     color: red;
-    background-color: darkgrey;
+    background-color: rgb(255, 230, 162);
     margin-top: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
+    max-width: 800px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }

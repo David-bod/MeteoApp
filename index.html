@@ -14,7 +14,7 @@
 <body>
     <header>
         <ul id="suggestions">
-            <a id="s1" href="#" onclick="nantes()"><li id="value1">Nantes</li></a>
+            <a id="s1" href="#" onclick="cannes()"><li id="value1">Cannes</li></a>
             <a id="s2" href="#" onclick="marseille()"><li id="value2">Marseille</li></a>
             <a id="s3" href="#" onclick="paris()"><li id="value3">Paris</li></a>
             <a id="s4" href="#" onclick="strasbourg()"><li id="value4">Strasbourg</li></a>
@@ -68,7 +68,20 @@
                 <p><i class="fas fa-circle" id="E"></i>Extrème</p>
             </div>
         </div>
+        <div class="container">
+            <ul class="container_weather">
+                <h3><i id="AB" class="fas fa-star"></i> Votre liste personnalisée <i id="AB" class="fas fa-star"></i></h3> 
+                <div class="favContainer">
+                    <a href="#"><li id="fav1"></li></a> <p>-</p> <a href="#" onclick="deleteFav1()"><i id="TM" class="fas fa-times"></i></a>
+                </div>
+                <div class="favContainer">
+                    <a href="#"><li id="fav2"></li></a> <p>-</p> <a href="#" onclick="deleteFav2()"><i id="TM" class="fas fa-times"></i></a>
+                </div>
+            </ul>
+        </div>
         <button onclick="fonctionGetApi()" class="button">Actualiser les données</button>
+        <button onclick="clearLocalStorage()" class="button">Vider le cache</button>
+        <button onclick="ajouterFavoris()" class="buttonFav">Ajouter aux favoris</button>
     </main>
     <footer>
 
