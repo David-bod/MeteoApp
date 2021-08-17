@@ -2,6 +2,14 @@ let url = "http://api.openweathermap.org/data/2.5/weather?q=" + localStorage.get
 
 choice.value = localStorage.getItem("city");
 
+if(localStorage.getItem("city") != null){ // GESTION DU TITRE
+    const title = document.getElementById("title");
+    title.innerHTML = localStorage.getItem("city");
+}else{
+    const title = document.getElementById("title");
+    title.innerHTML = "Choisissez une ville";
+}
+
 if(localStorage.getItem("city") == null){ // SI LE LOCALSTORAGE VIDE
     const oups = document.createElement("h3");
     oups.className = "oups";
@@ -39,6 +47,7 @@ function fonctionGetApi(){
     }
 
 async function fonctionRecupData(){ // RECUPERATION DES DONNEES
+
     const recupDataJSON = await getApiData;
 
     const villeData = document.getElementById("ville"); // AFFICHAGE VILLE ET PAYS
@@ -174,5 +183,17 @@ function deleteFav1(){ // SUPPRIMER LE FAVORIS 1
 
 function deleteFav2(){ // SUPPRIMER LE FAVORIS 2
     localStorage.removeItem("fav2");
+    location.reload();
+}
+
+function fav1Weather(){
+    choice.value = localStorage.getItem("fav1");
+    choiceCity();
+    location.reload();
+}
+
+function fav2Weather(){
+    choice.value = localStorage.getItem("fav2");
+    choiceCity();
     location.reload();
 }

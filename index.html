@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="index_style.css">
     <link rel="icon" type="image/png" href="icon/png-icon-sun2.png">
         
-    <title>Application météo</title>
+    <title id="title"></title>
 </head>
 <body>
     <header>
@@ -72,10 +72,10 @@
             <ul class="container_weather">
                 <h3><i id="AB" class="fas fa-star"></i> Votre liste personnalisée <i id="AB" class="fas fa-star"></i></h3> 
                 <div class="favContainer">
-                    <a href="#"><li id="fav1"></li></a> <p>-</p> <a href="#" onclick="deleteFav1()"><i id="TM" class="fas fa-times"></i></a>
+                    <a href="#" onclick="fav1Weather()"><li id="fav1"></li></a> <p>-</p> <a href="#" onclick="deleteFav1()"><i id="TM" class="fas fa-times"></i></a>
                 </div>
                 <div class="favContainer">
-                    <a href="#"><li id="fav2"></li></a> <p>-</p> <a href="#" onclick="deleteFav2()"><i id="TM" class="fas fa-times"></i></a>
+                    <a href="#" onclick="fav2Weather()"><li id="fav2"></li></a> <p>-</p> <a href="#" onclick="deleteFav2()"><i id="TM" class="fas fa-times"></i></a>
                 </div>
             </ul>
         </div>
