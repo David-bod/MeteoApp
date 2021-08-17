@@ -33,11 +33,14 @@
                 <i id="5" class="fas fa-sun"></i>
             </div>
         </div>
-        
-        <form>
-            <input type="text" name="choice_city" value="Paris" id="choice">
-            <button onclick="choiceCity()" name="submit" value="Rechercher la ville" class="button">Rechercher</button>
-        </form>
+        <div id="search">
+            <form>
+                <input type="text" name="choice_city" value="Paris" id="choice">
+                <button onclick="choiceCity()" name="submit" value="Rechercher la ville" class="button">Rechercher</button>
+            </form>
+             <button onclick="gpsVerif()" name="gpsCoords" value="Météo par GPS" class="buttonGPS" id="GPS">Météo par GPS</button>
+        </div>
+
     </header>
     <main id="main">
         <div class="container">
@@ -84,9 +87,12 @@
         <button onclick="ajouterFavoris()" class="buttonFav">Ajouter aux favoris</button>
     </main>
     <footer>
-
+        <div id="position">
+            <p id="position_texte"></p>
+        </div>
     </footer>
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="suggestions.js"></script>
+    <script type="text/javascript" src="gps_coordonnees.js"></script>
 </body>
 </html>

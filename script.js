@@ -16,6 +16,31 @@ if(localStorage.getItem("city") == null){ // SI LE LOCALSTORAGE VIDE
     fonctionGetApi();
 }
 
+function gpsVerif(){ // XMLHTTPREQUEST POUR GPS SEULEMENT ET VERIF LOCALSTORAGE LATITUDE ET LONGITUDE
+    if(localStorage.getItem("lat") != null && localStorage.getItem("long") != null){
+        let url = "http://api.openweathermap.org/data/2.5/find?lat=" + localStorage.getItem("lat") + "&lon=" + localStorage.getItem("long") + "&cnt=5&appid=83e43e88bae5408164e0f42de0a475a4&lang=FR"
+        console.log("Localisation GPS en cours");
+        getApiData = new Promise((resolve) => {
+            var getData = new XMLHttpRequest()
+            getData.onload = function () {
+                if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+                    resolve(JSON.parse(this.responseText))
+                    console.log(this.response);
+                    fonctionRecupDataGPS();
+                } else {
+                    reject = console.log("Erreur dans le chargement de la page. Essayez de selectionner une ville. Si le problème persiste, contactez l'admin du site.");
+                    return
+                }
+            }
+            getData.open("GET", url);
+            getData.send();
+            console.log("Connexion OK");
+        });
+    }else{
+        fonctionGetApi();
+    }
+}
+
 function fonctionGetApi(){
     if(localStorage.getItem("city") == null){ // SI LE LOCALSTORAGE NE CONTIENT PAS DE VILLE
         alert("Sélectionnez une ville avant d'actualiser les données.");
@@ -36,7 +61,7 @@ function fonctionGetApi(){
             getData.send();
         });
     }
-    }
+}
 
 async function fonctionRecupData(){ // RECUPERATION DES DONNEES
 
