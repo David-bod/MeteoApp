@@ -11,7 +11,6 @@ if(localStorage.getItem("city") == null){
     main.appendChild(oups);
 }else{
     fonctionGetApi();
-
 }
 
 function fonctionGetApi(){
@@ -54,7 +53,7 @@ async function fonctionRecupData(){
     if(recupDataJSON.main.humidity >= 10 && recupDataJSON.main.humidity <= 70){
         weatherHumidity.style.color = "#196F3D";
     }else{
-        weatherHumidity.style.color = "#F7DC6F";
+        weatherHumidity.style.color = "#EB984E";
     }
 
     const weatherVisibility = document.getElementById("li5"); // Visibility in meters
@@ -82,6 +81,23 @@ async function fonctionRecupData(){
     }else{
         weatherWindSpeed.style.color = "#8E44AD";
     }
+
+    if(recupDataJSON.weather[0].description === "couvert"){ // à finir suivant les indications de l'api
+        const typeOfCloud = document.getElementById("3");
+        typeOfCloud.title = "Actuellement couvert";
+        typeOfCloud.style.color = "grey";
+        typeOfCloud.style.fontSize = "1.5em";
+    }else if(recupDataJSON.weather[0].description === "ciel dégagé"){
+        const typeOfCloud = document.getElementById("5");
+        typeOfCloud.title = "Actuellement ciel dégagé";
+        typeOfCloud.style.color = "#FFD000";
+        typeOfCloud.style.fontSize = "1.5em";
+    }else if(recupDataJSON.weather[0].description === "partiellement nuageux"){
+        const typeOfCloud = document.getElementById("4");
+        typeOfCloud.title = "Actuellement partiellement nuageux";
+        typeOfCloud.style.color = "#C3B46E";
+        typeOfCloud.style.fontSize = "1.5em";
+    }
 }
 
 
@@ -90,14 +106,4 @@ function choiceCity(){
     const choice = document.getElementById("choice");
     localStorage.setItem("city", choice.value);
     console.log("valeur city initialisée");
-}
-
-function suggestionsChoice(){
-    localStorage.removeItem("city");
-    const Suggestions1 = document.getElementById("Value1");
-
-        localStorage.setItem("city", "nantes");
-        fonctionGetApi();
-        console.log("city selectionnée");
-        location.reload();
 }

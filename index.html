@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Application météo">
+    <script src="https://kit.fontawesome.com/9b758e3bf3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="index_style.css">
     <link rel="icon" type="image/png" href="icon/png-icon-sun2.png">
         
@@ -13,16 +14,26 @@
 <body>
     <header>
         <ul id="suggestions">
-            <a id="s1" href="#" onclick="suggestionsChoice()"><li id="value1">Nantes</li></a>
-            <a id="s2" href="#" onclick="suggestionsChoice()"><li id="value2">Marseilles</li></a>
-            <a id="s3" href="#" onclick="suggestionsChoice()"><li id="value3">Paris</li></a>
-            <a id="s4" href="#" onclick="suggestionsChoice()"><li id="value4">Strasbourg</li></a>
-            <a id="s5" href="#" onclick="suggestionsChoice()"><li id="value5">Brest</li></a>
-            <a id="s6" href="#" onclick="suggestionsChoice()"><li id="value6">Lyon</li></a>
-            <a id="s7" href="#" onclick="suggestionsChoice()"><li id="value7">Cherbourg-en-Cotentin</li></a>
-            <a id="s8" href="#" onclick="suggestionsChoice()"><li id="value8">Saint-Laurent-des-Autels</li></a>
+            <a id="s1" href="#" onclick="nantes()"><li id="value1">Nantes</li></a>
+            <a id="s2" href="#" onclick="marseille()"><li id="value2">Marseille</li></a>
+            <a id="s3" href="#" onclick="paris()"><li id="value3">Paris</li></a>
+            <a id="s4" href="#" onclick="strasbourg()"><li id="value4">Strasbourg</li></a>
+            <a id="s5" href="#" onclick="brest()"><li id="value5">Brest</li></a>
+            <a id="s6" href="#" onclick="lyon()"><li id="value6">Lyon</li></a>
+            <a id="s7" href="#" onclick="cherbourg()"><li id="value7">Cherbourg-en-Cotentin</li></a>
+            <a id="s8" href="#" onclick="saintL()"><li id="value8">Saint-Laurent-des-Autels</li></a>
         </ul>
-        <h1 id="ville"></h1>
+        <div>
+            <h1 id="ville"></h1>
+            <div id="typeOfCloud">
+                <i id="1" class="fas fa-cloud-showers-heavy"></i>
+                <i id="2" class="fas fa-cloud-sun-rain"></i>
+                <i id="3" class="fas fa-cloud"></i>
+                <i id="4" class="fas fa-cloud-sun"></i>
+                <i id="5" class="fas fa-sun"></i>
+            </div>
+        </div>
+        
         <form>
             <input type="text" name="choice_city" value="Paris" id="choice">
             <button onclick="choiceCity()" name="submit" value="Rechercher la ville" class="button">Rechercher</button>
@@ -48,13 +59,13 @@
         <div class="container_legend">
             <h2>Légende : </h2>
             <div id="line_legend">
-                <p id="TB">Très bien</p>
-                <p id="B">Bien</p>
-                <p id="AB">Assez bien</p>
-                <p id="MO">Moyen</p>
-                <p id="MA">Mauvais</p>
-                <p id="TM">Très mauvais</p>
-                <p id="E">Extrème</p>
+                <p><i class="fas fa-circle" id="TB"></i>Très bien</p>
+                <p><i class="fas fa-circle" id="B"></i>Bien</p>
+                <p><i class="fas fa-circle" id="AB"></i>Assez bien</p>
+                <p><i class="fas fa-circle" id="MO"></i>Moyen</p>
+                <p><i class="fas fa-circle" id="MA"></i>Mauvais</p>
+                <p><i class="fas fa-circle" id="TM"></i>Très mauvais</p>
+                <p><i class="fas fa-circle" id="E"></i>Extrème</p>
             </div>
         </div>
         <button onclick="fonctionGetApi()" class="button">Actualiser les données</button>
@@ -62,6 +73,7 @@
     <footer>
 
     </footer>
-    <script type="text/javascript" src="script.js"></script> 
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="suggestions.js"></script>
 </body>
 </html>
