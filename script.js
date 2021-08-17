@@ -102,19 +102,19 @@ async function fonctionRecupData(){ // RECUPERATION DES DONNEES
         const typeOfCloud = document.getElementById("3");
         typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
         typeOfCloud.style.color = "grey";
-        typeOfCloud.style.fontSize = "2em";
+        typeOfCloud.style.fontSize = "3em";
         typeOfCloud.style.transition = "2s";
     }else if(recupDataJSON.weather[0].description === "ciel dégagé"){
         const typeOfCloud = document.getElementById("5");
         typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
         typeOfCloud.style.color = "#FFD000";
-        typeOfCloud.style.fontSize = "2em";
+        typeOfCloud.style.fontSize = "3em";
         typeOfCloud.style.transition = "2s";
     }else if(recupDataJSON.weather[0].description === "partiellement nuageux" || recupDataJSON.weather[0].description === "peu nuageux"){
         const typeOfCloud = document.getElementById("4");
         typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
         typeOfCloud.style.color = "#C3B46E";
-        typeOfCloud.style.fontSize = "2em";
+        typeOfCloud.style.fontSize = "3em";
         typeOfCloud.style.transition = "2s";
     }
 
