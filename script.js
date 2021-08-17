@@ -11,22 +11,14 @@ if(localStorage.getItem("city") != null){ // GESTION DU TITRE
 }
 
 if(localStorage.getItem("city") == null){ // SI LE LOCALSTORAGE VIDE
-    const oups = document.createElement("h3");
-    oups.className = "oups";
-    oups.innerHTML = "Oups, quelque chose fonctionne mal ! Selectionnez une ville pour résoudre le problème.";
-    const main = document.getElementById("main");
-    main.appendChild(oups);
+    alert("Oups, il semblerait qu'aucune ville ne soit sélectionnée.");
 }else{
     fonctionGetApi();
 }
 
 function fonctionGetApi(){
     if(localStorage.getItem("city") == null){ // SI LE LOCALSTORAGE NE CONTIENT PAS DE VILLE
-        const oups = document.createElement("h3");
-        oups.className = "oups";
-        oups.innerHTML = "Sélectinonnez une ville avant d'acualiser les données.";
-        const main = document.getElementById("main");
-        main.appendChild(oups);
+        alert("Sélectionnez une ville avant d'actualiser les données.");
     }else{ // SINON RECUPERER LES DONNEES DE LA VILLE
         getApiData = new Promise((resolve) => {
             var getData = new XMLHttpRequest()
@@ -143,11 +135,7 @@ function choiceCity(){ // CHOIX DE LA VILLE DANS LE CHAMPS TEXTE
 
 function clearLocalStorage(){ // NETTOYER LE LOCALSTORAGE
     if(localStorage.getItem("city") == null){ // SI C'EST DEJA VIDE
-        const oups = document.createElement("h3");
-        oups.className = "oups";
-        oups.innerHTML = "Le cache est déjà vide.";
-        const main = document.getElementById("main");
-        main.appendChild(oups);
+        alert("Le cache est déjà vide.")
     }else{ // SI LA VALEUR CITY EST ENCORE PLEINE
         localStorage.removeItem("city");
         location.reload();
@@ -162,17 +150,16 @@ function ajouterFavoris(){ // FONCTION AJOUTER DES FAVORIS
         localStorage.setItem("fav2", choice.value);
         location.reload();
     }else if(localStorage.getItem("fav1") != null && localStorage.getItem("fav2") != null){
-        const oups = document.createElement("h3");
-        oups.className = "oups";
-        oups.innerHTML = "Vous avez atteint le nombre maximum de favoris.";
-        const main = document.getElementById("main");
-        main.appendChild(oups);
+        let favMax = confirm("Vous avez atteint le nombre maximum de favoris. Voulez vous les supprimer ?"); // FAVORIS PLEINS
+        if(favMax == true){
+            localStorage.removeItem("fav1");
+            localStorage.removeItem("fav2");
+            location.reload();
+        }else{
+            console.log("Favoris non supprimés");
+        }
     }else if(localStorage.getItem("fav1") == localStorage.getItem("city") || localStorage.getItem("fav2") == localStorage.getItem("city")){
-        const oups = document.createElement("h3");
-        oups.className = "oups";
-        oups.innerHTML = "Cette ville est déjà dans votre liste.";
-        const main = document.getElementById("main");
-        main.appendChild(oups);
+        alert("Cette ville est déjà dans votre liste de favoris.")
     }
 }
 
