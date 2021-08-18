@@ -61,6 +61,9 @@ async function fonctionRecupData(){ // RECUPERATION DES DONNEES
     }else if(localStorage.getItem("mode") == null){
         localStorage.setItem("mode", "dark");
     }
+
+    initIcons();
+
     localStorage.removeItem("GPS");
 
     const recupDataJSON = await getApiData;
