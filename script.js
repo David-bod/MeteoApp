@@ -56,6 +56,7 @@ function fonctionGetApi(){
 }
 
 async function fonctionRecupData(){ // RECUPERATION DES DONNEES
+
     if (localStorage.getItem("mode") == "light"){ // GESTION MODE CLAIR OU SOMBRE
         lightActivate();
     }else if(localStorage.getItem("mode") == null){
