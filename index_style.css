@@ -18,7 +18,7 @@ html{
 }
 
 body{
-    background: no-repeat linear-gradient(70deg, rgba(41,41,45,1) 0%, rgba(75,75,106,1) 47%, rgba(43,39,39,1) 100%);
+    background: no-repeat linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(36, 39, 61) 50%, rgb(0, 0, 0) 100%);
 }
 
 #suggestionsEtDarkMode{
@@ -50,11 +50,6 @@ h1, h2, h3, h4, p, li{
     color: white;
 }
 
-#s1, #s2, #s3, #s4, #s5, #s6, #s7, #s8, #s9:active{
-    text-decoration: none;
-    color: black;
-}
-
 h1{
     margin-bottom: 10px;
     margin-top: 10px;
@@ -84,7 +79,6 @@ h3{
     margin-left: auto;
     margin-right: auto;
     border-radius: 30px;
-    box-shadow: 0px 0px 3px rgb(255, 255, 255);
 }
 
 #search{
@@ -121,7 +115,6 @@ li{
     width: 25%;
     min-width: 300px;
     font-size: 1.1em;
-    box-shadow: 0px 0px 3px rgb(0, 0, 0);
 }
 
 .container_legend{
@@ -133,7 +126,6 @@ li{
     width: 330px;
     font-size: 1em;
     margin: auto;
-    box-shadow: 0px 0px 3px rgb(0, 0, 0);
 }
 
 #line_legend p{
@@ -174,9 +166,29 @@ li{
 #position{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin-top: 30px;
     margin-bottom: 50px;
     font-size: 0.7em;
+}
+
+.dataInfos{
+    margin-top: 10px;
+    color: black;
+    text-decoration: none;
+    background-color: blanchedalmond;
+    width: 210px;
+    padding: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+}
+
+.dataInfos:hover{
+    transform: scale(1.025);
+    transition: 0.5s;
+    background-color: rgb(54, 51, 45);
+    color: rgb(255, 255, 255);
 }
 
 

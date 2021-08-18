@@ -16,7 +16,7 @@ function modeAffichage(){
         const buttonChangeText = document.getElementById("darkText"); // vers le span texte
         const marginCoords = document.getElementById("position_texte");
 
-        html.style.background = "no-repeat linear-gradient(70deg, rgb(255, 255, 255) 0%, rgb(190, 190, 190) 47%, rgb(255, 255, 255) 100%)"
+        html.style.background = "no-repeat linear-gradient(90deg, rgb(200, 200, 200) 0%, rgb(255, 255, 255) 50%, rgb(200, 200, 200) 100%)"
         li1.style.color = "black";
         li2.style.color = "black";
         li3.style.color = "black";
@@ -32,7 +32,7 @@ function modeAffichage(){
         marginCoords.style.color = "black";
 
 
-        buttonChangeText.innerHTML = "Go Dark ";
+        buttonChangeText.innerHTML = "Mode sombre ";
         localStorage.setItem("mode", "light");
     }else if(localStorage.getItem("mode") == "light"){ // passage en dark
         const html = document.body; // vers le body
@@ -51,7 +51,7 @@ function modeAffichage(){
         const buttonChangeText = document.getElementById("darkText"); // vers le span texte
         const marginCoords = document.getElementById("position_texte");
 
-        html.style.background = "no-repeat linear-gradient(70deg, rgba(41,41,45,1) 0%, rgba(75,75,106,1) 47%, rgba(43,39,39,1) 100%)"
+        html.style.background = "no-repeat linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(36, 39, 61) 50%, rgb(0, 0, 0) 100%)"
         li1.style.color = "white";
         li2.style.color = "white";
         li3.style.color = "white";
@@ -66,7 +66,7 @@ function modeAffichage(){
         containWeather3.style.backgroundColor = "rgb(34, 31, 31, 0.5)";
         marginCoords.style.color = "white";
 
-        buttonChangeText.innerHTML = "Go Light ";
+        buttonChangeText.innerHTML = "Mode clair ";
         localStorage.setItem("mode", "dark");
     }
 }
@@ -90,7 +90,7 @@ function lightActivate(){
     const buttonChangeText = document.getElementById("darkText"); // vers le span texte
     const marginCoords = document.getElementById("position_texte");
 
-    html.style.background = "no-repeat linear-gradient(70deg, rgb(255, 255, 255) 0%, rgb(190, 190, 190) 47%, rgb(255, 255, 255) 100%)"
+    html.style.background = "no-repeat linear-gradient(90deg, rgb(200, 200, 200) 0%, rgb(255, 255, 255) 50%, rgb(200, 200, 200) 100%)"
     li1.style.color = "black";
     li2.style.color = "black";
     li3.style.color = "black";
@@ -106,6 +106,6 @@ function lightActivate(){
     marginCoords.style.color = "black";
 
 
-    buttonChangeText.innerHTML = "Go Dark ";
+    buttonChangeText.innerHTML = "Mode sombre ";
     localStorage.setItem("mode", "light");
 }

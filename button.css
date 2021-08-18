@@ -2,11 +2,12 @@
 
 #mode{
   border-radius: 15px;
-  width: 80px;
+  width: 115px;
   height: 25px;
-  border: 0px;
+  border: 1px solid rgb(255, 255, 255);
   text-align: center;
   padding: 0px;
+  margin-left: 10px;
   cursor: pointer;
   background-color: rgb(48, 11, 45);
 }
@@ -16,9 +17,10 @@
 }
 
 #mode:hover{
-  background-color: rgb(245, 132, 235);
+  background-color: rgb(116, 148, 124);
   transform: scale(1.05);
   transition: 0.5s;
+  border: 3px solid rgb(22, 29, 19);
 }
 
 
@@ -28,22 +30,22 @@
     width: 170px;
     height: 20px;
     margin-top: 10px;
-    color: #fff;
+    color: rgb(255, 247, 217);
     border-radius: 5px;
     padding: 5px 25px;
     font-weight: bold;
     background: white;
     cursor: pointer;
-    transition: all 0.6s ease;
+    transition: all 1s ease;
     position: relative;
     display: inline-block;
-    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+    box-shadow:inset 0px 0px 1px 1px blanchedalmond;
     outline: none;
 }
 
 .btn {
     background: rgb(22, 27, 99);
-    background: linear-gradient(0deg, rgb(67, 65, 112) 0%, rgb(81, 83, 167) 100%);
+    background: rgb(116, 148, 124);
     width: 170px;
     height: 26px;
     line-height: 30px;
@@ -63,8 +65,8 @@
     content: "";
     right: 0;
     top: 0;
-    background: rgba(2,126,251,1);
-    transition: all 0.3s ease;
+    background: rgb(0, 0, 0); /* top + right */
+    transition: all 2s ease;
   }
 
   .btn:before {
@@ -78,7 +80,7 @@
   }
 
   .btn:hover{
-    background: rgb(255, 255, 255);
+    background: blanchedalmond;
     box-shadow: none;
   }
 
@@ -91,7 +93,7 @@
   }
 
   .btn span:hover{
-    color: rgb(0, 0, 0);
+    color: rgb(116, 148, 124);
   }
 
   .btn span:before, .btn span:after {
@@ -99,7 +101,7 @@
     content: "";
     left: 0;
     bottom: 0;
-    background: rgba(2,126,251,1);
+    background: rgb(0, 0, 0); /* left + bottom  */
     transition: all 0.6s ease;
   }
 

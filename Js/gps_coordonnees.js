@@ -69,24 +69,28 @@ async function fonctionRecupDataGPS(){ // RECUPERATION DES DONNEES
 
 
     if(recupDataJSON.list[0].weather[0].description === "couvert" || recupDataJSON.list[0].weather[0].description === "nuageux"){ // AFFICHAGE DES LOGOS
+        initIcons();
         const typeOfCloud = document.getElementById("3");
         typeOfCloud.title = "Actuellement " + recupDataJSON.list[0].weather[0].description;
         typeOfCloud.style.color = "grey";
         typeOfCloud.style.fontSize = "3em";
         typeOfCloud.style.transition = "2s";
     }else if(recupDataJSON.list[0].weather[0].description === "ciel dégagé"){
+        initIcons();
         const typeOfCloud = document.getElementById("5");
         typeOfCloud.title = "Actuellement " + recupDataJSON.list[0].weather[0].description;
         typeOfCloud.style.color = "#FFD000";
         typeOfCloud.style.fontSize = "3em";
         typeOfCloud.style.transition = "2s";
     }else if(recupDataJSON.list[0].weather[0].description === "partiellement nuageux" || recupDataJSON.list[0].weather[0].description === "peu nuageux"){
+        initIcons();
         const typeOfCloud = document.getElementById("4");
         typeOfCloud.title = "Actuellement " + recupDataJSON.list[0].weather[0].description;
         typeOfCloud.style.color = "#C3B46E";
         typeOfCloud.style.fontSize = "3em";
         typeOfCloud.style.transition = "2s";
     }else if(recupDataJSON.weather[0].description === "bruine légère"){
+        initIcons();
         const typeOfCloud = document.getElementById("2bis");
         typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
         typeOfCloud.style.color = "gray";
@@ -115,4 +119,27 @@ async function fonctionRecupDataGPS(){ // RECUPERATION DES DONNEES
         title.innerHTML = localStorage.getItem("GPS");
     }
 
+}
+
+function initIcons(){
+    const typeOfCloud1 = document.getElementById("1"); // cherche les éléments
+    const typeOfCloud2 = document.getElementById("2");
+    const typeOfCloud2bis = document.getElementById("2bis");
+    const typeOfCloud3 = document.getElementById("3");
+    const typeOfCloud4 = document.getElementById("4");
+    const typeOfCloud5 = document.getElementById("5");
+
+    typeOfCloud1.style.fontSize = "1em"; // initialise la taille à 0.8em
+    typeOfCloud2.style.fontSize = "1em";
+    typeOfCloud2bis.style.fontSize = "1em";
+    typeOfCloud3.style.fontSize = "1em";
+    typeOfCloud4.style.fontSize = "1em";
+    typeOfCloud5.style.fontSize = "1em";
+
+    typeOfCloud1.style.color = "black"; // initialise les icons sur noir
+    typeOfCloud2.style.color = "black";
+    typeOfCloud2bis.style.color = "black";
+    typeOfCloud3.style.color = "black";
+    typeOfCloud4.style.color = "black";
+    typeOfCloud5.style.color = "black";
 }
