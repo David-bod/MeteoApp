@@ -58,6 +58,8 @@ function fonctionGetApi(){
 async function fonctionRecupData(){ // RECUPERATION DES DONNEES
     if (localStorage.getItem("mode") == "light"){
         lightActivate();
+    }else if(localStorage.getItem("mode") == null){
+        localStorage.setItem("mode", "dark");
     }
     localStorage.removeItem("GPS");
 
