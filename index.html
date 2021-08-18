@@ -7,6 +7,7 @@
     <meta name="description" content="Application météo">
     <script src="https://kit.fontawesome.com/9b758e3bf3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="index_style.css">
+    <link rel="stylesheet" href="button.css">
     <link rel="icon" type="image/png" href="icon/png-icon-sun2.png">
         
     <title id="title"></title>
@@ -23,24 +24,24 @@
             <a id="s7" href="#" onclick="cherbourg()"><li id="value7">Cherbourg-en-Cotentin</li></a>
             <a id="s8" href="#" onclick="saintL()"><li id="value8">Saint-Laurent-des-Autels</li></a>
         </ul>
+        <div id="search">
+            <form id="formSearch">
+                <input type="text" name="choice_city" value="Paris" id="choice">
+                <button onclick="choiceCity()" name="submit" value="Rechercher la ville" class="buttonP btn"><span>Rechercher <i class="fas fa-search"></i></span></button>
+            </form>
+             <button onclick="gpsVerif()" name="gpsCoords" value="Météo par GPS" class="buttonP btn" id="GPS"><span>Localiser ma position <i class="fas fa-search-location"></i></span></button>
+        </div>
         <div>
             <h1 id="ville"></h1>
             <div id="typeOfCloud">
                 <i id="1" class="fas fa-cloud-showers-heavy"></i>
                 <i id="2" class="fas fa-cloud-sun-rain"></i>
+                <i id="2bis" class="fas fa-smog"></i>
                 <i id="3" class="fas fa-cloud"></i>
                 <i id="4" class="fas fa-cloud-sun"></i>
                 <i id="5" class="fas fa-sun"></i>
             </div>
         </div>
-        <div id="search">
-            <form>
-                <input type="text" name="choice_city" value="Paris" id="choice">
-                <button onclick="choiceCity()" name="submit" value="Rechercher la ville" class="button">Rechercher</button>
-            </form>
-             <button onclick="gpsVerif()" name="gpsCoords" value="Météo par GPS" class="buttonGPS" id="GPS">Météo par GPS</button>
-        </div>
-
     </header>
     <main id="main">
         <div class="container">
@@ -59,6 +60,17 @@
                 <li id="li3"></li>
             </ul>
         </div>
+        <div class="container">
+            <ul class="container_weather">
+                <h3>Liste des favoris <i id="AB" class="fas fa-star"></i></h3>
+                <div class="favContainer">
+                    <a href="#" onclick="fav1Weather()" title="Charger la ville"><li id="fav1"></li></a> <a href="#" onclick="deleteFav1()" title="Supprimer la ville des favoris"><i id="TM" class="fas fa-times"></i></a>
+                </div>
+                <div class="favContainer">
+                    <a href="#" onclick="fav2Weather()" title="Charger la ville"><li id="fav2"></li></a> <a href="#" onclick="deleteFav2()" title="Supprimer la ville des favoris"><i id="TM" class="fas fa-times"></i></a>
+                </div>
+            </ul>
+        </div>
         <div class="container_legend">
             <h2>Légende : </h2>
             <div id="line_legend">
@@ -71,20 +83,9 @@
                 <p><i class="fas fa-circle" id="E"></i>Extrème</p>
             </div>
         </div>
-        <div class="container">
-            <ul class="container_weather">
-                <h3><i id="AB" class="fas fa-star"></i> Votre liste personnalisée <i id="AB" class="fas fa-star"></i></h3> 
-                <div class="favContainer">
-                    <a href="#" onclick="fav1Weather()" title="Charger la ville"><li id="fav1"></li></a> <p>-</p> <a href="#" onclick="deleteFav1()" title="Supprimer la ville des favoris"><i id="TM" class="fas fa-times"></i></a>
-                </div>
-                <div class="favContainer">
-                    <a href="#" onclick="fav2Weather()" title="Charger la ville"><li id="fav2"></li></a> <p>-</p> <a href="#" onclick="deleteFav2()" title="Supprimer la ville des favoris"><i id="TM" class="fas fa-times"></i></a>
-                </div>
-            </ul>
-        </div>
-        <button onclick="fonctionGetApi()" class="button">Actualiser les données</button>
-        <button onclick="clearLocalStorage()" class="button">Vider le cache</button>
-        <button onclick="ajouterFavoris()" class="buttonFav">Ajouter aux favoris</button>
+        <button onclick="fonctionGetApi()" class="buttonP btn"><span>Actualiser <i class="fas fa-sync"></i></span></button>
+        <button onclick="clearLocalStorage()" class="buttonP btn"><span>Vider le cache <i class="far fa-trash-alt"></i></span></button>
+        <button onclick="ajouterFavoris()" class="buttonP btn"><span>Ajouter aux favoris <i class="far fa-heart"></i></span></button>
     </main>
     <footer>
         <div id="position">

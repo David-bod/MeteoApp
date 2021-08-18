@@ -20,6 +20,7 @@ async function fonctionRecupDataGPS(){ // RECUPERATION DES DONNEES
 
     const villeData = document.getElementById("ville"); // AFFICHAGE VILLE ET PAYS
     villeData.innerHTML = recupDataJSON.list[0].name + ", " + recupDataJSON.list[0].sys.country;
+    localStorage.setItem("GPS", recupDataJSON.list[0].name);
 
     const weatherClouds = document.getElementById("li1"); // TYPE DE NUAGE ET DESCRIPTION DETAILLES
     weatherClouds.innerHTML = "Le temps est actuellement : " + recupDataJSON.list[0].weather[0].description;
@@ -66,6 +67,7 @@ async function fonctionRecupDataGPS(){ // RECUPERATION DES DONNEES
         weatherWindSpeed.style.color = "#8E44AD";
     }
 
+
     if(recupDataJSON.list[0].weather[0].description === "couvert" || recupDataJSON.list[0].weather[0].description === "nuageux"){ // AFFICHAGE DES LOGOS
         const typeOfCloud = document.getElementById("3");
         typeOfCloud.title = "Actuellement " + recupDataJSON.list[0].weather[0].description;
@@ -84,9 +86,16 @@ async function fonctionRecupDataGPS(){ // RECUPERATION DES DONNEES
         typeOfCloud.style.color = "#C3B46E";
         typeOfCloud.style.fontSize = "3em";
         typeOfCloud.style.transition = "2s";
+    }else if(recupDataJSON.weather[0].description === "bruine légère"){
+        const typeOfCloud = document.getElementById("2bis");
+        typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
+        typeOfCloud.style.color = "gray";
+        typeOfCloud.style.fontSize = "3em";
+        typeOfCloud.style.transition = "2s";
     }
 
     console.log("Affichage des paramètres : OK");
+    console.log("Ville affichée : " + recupDataJSON.list[0].name)
 
     if(localStorage.getItem("fav1") != null && localStorage.getItem("fav2") == null){ // VERIFICATION ET AFFICHAGE FAVORIS
         const fav1 = document.getElementById("fav1");
@@ -99,6 +108,11 @@ async function fonctionRecupDataGPS(){ // RECUPERATION DES DONNEES
     }else if(localStorage.getItem("fav1") == null && localStorage.getItem("fav2") != null){
         const fav2 = document.getElementById("fav2");
         fav2.innerHTML = localStorage.getItem("fav2");
+    }
+
+    if(localStorage.getItem("GPS") != null){
+        const title = document.getElementById("title");
+        title.innerHTML = localStorage.getItem("GPS");
     }
 
 }

@@ -1,14 +1,6 @@
-let url = "http://api.openweathermap.org/data/2.5/weather?q=" + localStorage.getItem("city") + ",fr&appid=83e43e88bae5408164e0f42de0a475a4&lang=FR";
+let url = "https://api.openweathermap.org/data/2.5/weather?q=" + localStorage.getItem("city") + ",fr&appid=83e43e88bae5408164e0f42de0a475a4&lang=FR";
 
 choice.value = localStorage.getItem("city");
-
-if(localStorage.getItem("city") != null){ // GESTION DU TITRE
-    const title = document.getElementById("title");
-    title.innerHTML = localStorage.getItem("city");
-}else{
-    const title = document.getElementById("title");
-    title.innerHTML = "Choisissez une ville";
-}
 
 if(localStorage.getItem("city") == null){ // SI LE LOCALSTORAGE VIDE
     alert("Oups, il semblerait qu'aucune ville ne soit sélectionnée.");
@@ -18,7 +10,7 @@ if(localStorage.getItem("city") == null){ // SI LE LOCALSTORAGE VIDE
 
 function gpsVerif(){ // XMLHTTPREQUEST POUR GPS SEULEMENT ET VERIF LOCALSTORAGE LATITUDE ET LONGITUDE
     if(localStorage.getItem("lat") != null && localStorage.getItem("long") != null){
-        let url = "http://api.openweathermap.org/data/2.5/find?lat=" + localStorage.getItem("lat") + "&lon=" + localStorage.getItem("long") + "&cnt=5&appid=83e43e88bae5408164e0f42de0a475a4&lang=FR"
+        let url = "https://api.openweathermap.org/data/2.5/find?lat=" + localStorage.getItem("lat") + "&lon=" + localStorage.getItem("long") + "&cnt=5&appid=83e43e88bae5408164e0f42de0a475a4&lang=FR"
         console.log("Localisation GPS en cours");
         getApiData = new Promise((resolve) => {
             var getData = new XMLHttpRequest()
@@ -64,6 +56,7 @@ function fonctionGetApi(){
 }
 
 async function fonctionRecupData(){ // RECUPERATION DES DONNEES
+    localStorage.removeItem("GPS");
 
     const recupDataJSON = await getApiData;
 
@@ -133,6 +126,12 @@ async function fonctionRecupData(){ // RECUPERATION DES DONNEES
         typeOfCloud.style.color = "#C3B46E";
         typeOfCloud.style.fontSize = "3em";
         typeOfCloud.style.transition = "2s";
+    }else if(recupDataJSON.weather[0].description === "bruine légère"){
+        const typeOfCloud = document.getElementById("2bis");
+        typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
+        typeOfCloud.style.color = "gray";
+        typeOfCloud.style.fontSize = "3em";
+        typeOfCloud.style.transition = "2s";
     }
 
     if(localStorage.getItem("fav1") != null && localStorage.getItem("fav2") == null){ // VERIFICATION ET AFFICHAGE FAVORIS
@@ -146,6 +145,17 @@ async function fonctionRecupData(){ // RECUPERATION DES DONNEES
     }else if(localStorage.getItem("fav1") == null && localStorage.getItem("fav2") != null){
         const fav2 = document.getElementById("fav2");
         fav2.innerHTML = localStorage.getItem("fav2");
+    }
+
+    if(localStorage.getItem("city") != null && localStorage.getItem("GPS") == null){ // GESTION DU TITRE
+        const title = document.getElementById("title");
+        title.innerHTML = localStorage.getItem("city");
+    }else if(localStorage.getItem("city") == null && localStorage.getItem("GPS") == null){
+        const title = document.getElementById("title");
+        title.innerHTML = "Choisissez une ville";
+    }else if(localStorage.getItem("GPS") != null){
+        const title = document.getElementById("title");
+        title.innerHTML = localStorage.getItem("GPS");
     }
 
 }

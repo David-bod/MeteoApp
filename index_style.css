@@ -7,15 +7,24 @@ body, h1, h2, h3, p, figure, img{
     margin : 0px;
 }
 
+ul{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 html{
     font-family: Raleway;
     font-weight: bolder;
+    background: rgb(41,41,45);
+    background: linear-gradient(70deg, rgba(41,41,45,1) 0%, rgba(75,75,106,1) 47%, rgba(43,39,39,1) 100%);
 }
 
 #suggestions{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 10px;
+    padding-left: 0px;
 }
 
 #suggestions li{
@@ -29,6 +38,10 @@ html{
     color: black;
 }
 
+h1, h2, h3, h4, p, li{
+    color: white;
+}
+
 #s1, #s2, #s3, #s4, #s5, #s6, #s7, #s8, #s9:active{
     text-decoration: none;
     color: black;
@@ -36,6 +49,7 @@ html{
 
 h1{
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 h2{
@@ -44,35 +58,30 @@ h2{
     font-size: 0.9em;
 }
 
+h3{
+    font-size: 0.9em;
+    border-bottom: 2px solid #F7DC6F;
+    width: 100%;
+    margin: auto;
+    padding-bottom: 5px;
+}
+
 #typeOfCloud{
     margin-bottom: 10px;
-    border: 2px solid black;
+    border: 2px solid rgb(177, 177, 177);
+    background: white;
     padding-top: 5px;
     padding-bottom: 5px;
     max-width: 200px;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 10px;
-    box-shadow: 0px 0px 3px gray;
+    border-radius: 30px;
+    box-shadow: 0px 0px 3px rgb(255, 255, 255);
 }
 
 #search{
     display: flex;
     justify-content: center;
-}
-
-.buttonGPS{
-    margin-top: 10px;
-    border-radius: 5px;
-    width: 175px;
-    height: 25px;
-    background-color: rgb(185, 185, 231);
-}
-
-.buttonGPS:hover{
-    background-color: rgb(167, 233, 167);
-    font-size: 0.85em;
-    transition: 0.5s;
 }
 
 #GPS{
@@ -92,31 +101,31 @@ li{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 300px;
+    margin: auto;
 }
 
 .container_weather{
-    border: 2px solid rgb(192, 192, 192);
-    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    background-color: rgb(34, 31, 31, 0.5);
     border-radius: 10px;
     padding: 15px;
     width: 25%;
     min-width: 300px;
     font-size: 1.1em;
-    box-shadow: 0px 0px 3px gray;
+    box-shadow: 0px 0px 3px rgb(0, 0, 0);
 }
 
 .container_legend{
     border: 2px solid rgb(0, 0, 0);
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(34, 31, 31, 0.5);
     border-radius: 10px;
-    padding-right: 15px;
-    padding-left: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 25%;
-    min-width: 300px;
+    width: 330px;
     font-size: 1em;
     margin: auto;
+    box-shadow: 0px 0px 3px rgb(0, 0, 0);
 }
 
 #line_legend p{
@@ -127,8 +136,14 @@ li{
     font-size: 0.6em;
 }
 
+#line_legend p i{
+    margin-right: 5px;
+}
+
 #choice{
-    width: 100px;
+    width: 120px;
+    height: 19px;
+    border-radius: 5px;
 }
 
 .favContainer{
@@ -144,33 +159,6 @@ li{
 .favContainer a{
     text-decoration: none;
     margin-top: 10px;
-}
-
-.button{
-    margin-top: 10px;
-    border-radius: 5px;
-    width: 175px;
-    height: 25px;
-}
-
-.button:hover{
-    background-color: rgb(167, 233, 167);
-    font-size: 0.85em;
-    transition: 0.5s;
-}
-
-.buttonFav{
-    margin-top: 10px;
-    border-radius: 5px;
-    width: 175px;
-    height: 25px;
-    background-color: #F7DC6F;
-}
-
-.buttonFav:hover{
-    background-color: rgb(167, 233, 167);
-    font-size: 0.85em;
-    transition: 0.5s;
 }
 
 /* FOOTER */
