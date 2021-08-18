@@ -21,6 +21,8 @@ async function fonctionRecupDataGPS(){ // RECUPERATION DES DONNEES
     const villeData = document.getElementById("ville"); // AFFICHAGE VILLE ET PAYS
     villeData.innerHTML = recupDataJSON.list[0].name + ", " + recupDataJSON.list[0].sys.country;
     localStorage.setItem("GPS", recupDataJSON.list[0].name);
+    localStorage.setItem("city", recupDataJSON.list[0].name);
+    choice.value = localStorage.getItem("city");
 
     const weatherClouds = document.getElementById("li1"); // TYPE DE NUAGE ET DESCRIPTION DETAILLES
     weatherClouds.innerHTML = "Le temps est actuellement : " + recupDataJSON.list[0].weather[0].description;

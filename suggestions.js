@@ -49,7 +49,7 @@ function cherbourg(){
 
 function saintL(){
     localStorage.removeItem("city");
-    localStorage.setItem("city", "Saint-Laurent-des-Autels");
+    localStorage.setItem("city", "Lille");
     fonctionGetApi();
     location.reload();
 }

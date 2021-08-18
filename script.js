@@ -56,15 +56,15 @@ function fonctionGetApi(){
 }
 
 async function fonctionRecupData(){ // RECUPERATION DES DONNEES
-    if (localStorage.getItem("mode") == "light"){
+    if (localStorage.getItem("mode") == "light"){ // GESTION MODE CLAIR OU SOMBRE
         lightActivate();
     }else if(localStorage.getItem("mode") == null){
         localStorage.setItem("mode", "dark");
     }
 
-    initIcons();
+    initIcons(); // initialisation des icons
 
-    localStorage.removeItem("GPS");
+    localStorage.removeItem("GPS"); // remove du GPS
 
     const recupDataJSON = await getApiData;
 
