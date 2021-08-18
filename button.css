@@ -1,3 +1,29 @@
+/* bouton light et dark mode */
+
+#mode{
+  border-radius: 15px;
+  width: 80px;
+  height: 25px;
+  border: 0px;
+  text-align: center;
+  padding: 0px;
+  cursor: pointer;
+  background-color: rgb(48, 11, 45);
+}
+
+#mode i, #mode span{
+  color: rgb(255, 247, 217);
+}
+
+#mode:hover{
+  background-color: rgb(245, 132, 235);
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+
+
+/* bouton generaux */
+
 .buttonP{
     width: 170px;
     height: 20px;

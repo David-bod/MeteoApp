@@ -15,8 +15,16 @@ ul{
 html{
     font-family: Raleway;
     font-weight: bolder;
-    background: rgb(41,41,45);
-    background: linear-gradient(70deg, rgba(41,41,45,1) 0%, rgba(75,75,106,1) 47%, rgba(43,39,39,1) 100%);
+}
+
+body{
+    background: no-repeat linear-gradient(70deg, rgba(41,41,45,1) 0%, rgba(75,75,106,1) 47%, rgba(43,39,39,1) 100%);
+}
+
+#suggestionsEtDarkMode{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #suggestions{
@@ -167,6 +175,7 @@ li{
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    margin-bottom: 50px;
     font-size: 0.7em;
 }
 

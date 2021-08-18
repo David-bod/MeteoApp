@@ -14,16 +14,21 @@
 </head>
 <body>
     <header>
-        <ul id="suggestions">
-            <a id="s1" href="#" onclick="cannes()"><li id="value1">Cannes</li></a>
-            <a id="s2" href="#" onclick="marseille()"><li id="value2">Marseille</li></a>
-            <a id="s3" href="#" onclick="paris()"><li id="value3">Paris</li></a>
-            <a id="s4" href="#" onclick="strasbourg()"><li id="value4">Strasbourg</li></a>
-            <a id="s5" href="#" onclick="brest()"><li id="value5">Brest</li></a>
-            <a id="s6" href="#" onclick="lyon()"><li id="value6">Lyon</li></a>
-            <a id="s7" href="#" onclick="cherbourg()"><li id="value7">Cherbourg-en-Cotentin</li></a>
-            <a id="s8" href="#" onclick="saintL()"><li id="value8">Saint-Laurent-des-Autels</li></a>
-        </ul>
+        <div id="suggestionsEtDarkMode">
+            <ul id="suggestions">
+                <a id="s1" href="#" onclick="cannes()"><li id="value1">Cannes</li></a>
+                <a id="s2" href="#" onclick="marseille()"><li id="value2">Marseille</li></a>
+                <a id="s3" href="#" onclick="paris()"><li id="value3">Paris</li></a>
+                <a id="s4" href="#" onclick="strasbourg()"><li id="value4">Strasbourg</li></a>
+                <a id="s5" href="#" onclick="brest()"><li id="value5">Brest</li></a>
+                <a id="s6" href="#" onclick="lyon()"><li id="value6">Lyon</li></a>
+                <a id="s7" href="#" onclick="cherbourg()"><li id="value7">Cherbourg-en-Cotentin</li></a>
+                <a id="s8" href="#" onclick="saintL()"><li id="value8">Saint-Laurent-des-Autels</li></a>
+            </ul>
+            <div>
+                <button onclick="modeAffichage()" type="submit" name="mode" id="mode" title="Go dark"><span id="darkText">Go Light </span><i class="fas fa-sun"></i></button>
+            </div>
+        </div>
         <div id="search">
             <form id="formSearch">
                 <input type="text" name="choice_city" value="Paris" id="choice">
@@ -45,7 +50,7 @@
     </header>
     <main id="main">
         <div class="container">
-            <ul class="container_weather">
+            <ul class="container_weather" id="bc1">
                 <li id="li1"></li>
                 <li id="li5"></li>
                 <li id="li6"></li>
@@ -54,14 +59,14 @@
             </ul>
         </div>
         <div class="container">
-            <ul class="container_weather">
+            <ul class="container_weather" id="bc2">
                 <li id="li2"></li>
                 <li id="li4"></li>
                 <li id="li3"></li>
             </ul>
         </div>
         <div class="container">
-            <ul class="container_weather">
+            <ul class="container_weather" id="bc3">
                 <h3>Liste des favoris <i id="AB" class="fas fa-star"></i></h3>
                 <div class="favContainer">
                     <a href="#" onclick="fav1Weather()" title="Charger la ville"><li id="fav1"></li></a> <a href="#" onclick="deleteFav1()" title="Supprimer la ville des favoris"><i id="TM" class="fas fa-times"></i></a>
@@ -94,6 +99,7 @@
     </footer>
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="suggestions.js"></script>
-    <script type="text/javascript" src="gps_coordonnees.js"></script>
+    <script type="text/javascript" src="/Js/gps_coordonnees.js"></script>
+    <script type="text/javascript" src="/Js/modeAffichage.js"></script>
 </body>
 </html>
