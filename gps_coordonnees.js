@@ -36,6 +36,8 @@ async function fonctionRecupDataGPS(){
     let tempBrut = recupDataJSON.list[0].main.temp - 273.15;
     let resultat = tempBrut.toFixed(2);
     weatherTemperature.innerHTML = "Température : " + resultat + "°C";
+    const progress3 = document.getElementById("progress3");
+    progress3.value = resultat + 15;
 
     const weatherPressure = document.getElementById("li3"); // PRESSION ATMOSHPERIQUE
     weatherPressure.innerHTML = "Pression atmosphérique : " + recupDataJSON.list[0].main.pressure + " hPa";

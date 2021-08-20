@@ -140,10 +140,11 @@ li{
     color: white;
 }
 
-#progress, #progress2{
+#progress, #progress2, #progress3{
     border-radius: 2px;
     margin-left: 5px;
     margin-right: 5px;
+    transition: 1.5s;
 }
 
 .divProgress{

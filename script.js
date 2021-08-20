@@ -88,6 +88,8 @@ async function fonctionRecupData(){ // RECUPERATION DES DONNEES
     let tempBrut = recupDataJSON.main.temp - 273.15;
     let resultat = tempBrut.toFixed(2);
     weatherTemperature.innerHTML = "Température : " + resultat + "°C";
+    const progress3 = document.getElementById("progress3");
+    progress3.value = resultat + 15;
 
     const weatherPressure = document.getElementById("li3"); // PRESSION ATMOSHPERIQUE
     weatherPressure.innerHTML = "Pression atmosphérique : " + recupDataJSON.main.pressure + " hPa";
