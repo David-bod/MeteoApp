@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Application météo">
+    <script src="https://kit.fontawesome.com/9b758e3bf3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="button.css">
+    <link rel="stylesheet" href="previsions_style.css">
+    <link rel="icon" type="image/png" href="icon/png-icon-sun2.png">
+
+    <title id="title">Document</title>
+</head>
+<body>
+    <header>
+        <div id="suggestionsEtDarkMode">
+            <ul id="suggestions">
+                <a id="s1" href="#" onclick="cannes()"><li id="value1">Cannes</li></a>
+                <a id="s2" href="#" onclick="marseille()"><li id="value2">Marseille</li></a>
+                <a id="s3" href="#" onclick="paris()"><li id="value3">Paris</li></a>
+                <a id="s4" href="#" onclick="strasbourg()"><li id="value4">Strasbourg</li></a>
+                <a id="s5" href="#" onclick="brest()"><li id="value5">Brest</li></a>
+                <a id="s6" href="#" onclick="lyon()"><li id="value6">Lyon</li></a>
+                <a id="s7" href="#" onclick="cherbourg()"><li id="value7">Cherbourg-en-Cotentin</li></a>
+                <a id="s8" href="#" onclick="saintL()"><li id="value8">Lille</li></a>
+            </ul>
+            <div>
+                <button onclick="modeAffichage()" type="submit" name="mode" id="mode" title="Go dark"><span id="darkText">Mode clair </span><i class="fas fa-sun"></i></button>
+            </div>
+        </div>
+        <div id="search">
+            <form id="formSearch">
+                <input type="text" name="choice_city" value="Paris" id="choice">
+                <button onclick="choiceCity()" name="submit" value="Rechercher la ville" class="buttonP btn"><span>Rechercher <i class="fas fa-search"></i></span></button>
+            </form>
+            <button onclick="gpsVerif()" name="gpsCoords" value="Météo par GPS" class="buttonP btn" id="GPS"><span>Localiser ma position <i class="fas fa-search-location"></i></span></button>
+            <a href="index.html" id="previsions"><button class="buttonP btn"><span>Temps en direct <i class="fas fa-sun"></i></span></button></a>
+        </div>
+        <div>
+            <h1 id="ville"></h1>
+            <div id="typeOfCloud">
+                <i id="bolt" title="Orage" class="fas fa-bolt"></i>
+                <i id="0" title="Neige" class="far fa-snowflake"></i>
+                <i id="1" title="Pluie" class="fas fa-cloud-showers-heavy"></i>
+                <i id="2" title="Averses" class="fas fa-cloud-sun-rain"></i>
+                <i id="2bis" title="Brouillard" class="fas fa-smog"></i>
+                <i id="3" title="Nuageux" class="fas fa-cloud"></i>
+                <i id="4" title="Eclaircies" class="fas fa-cloud-sun"></i>
+                <i id="5" title="Soleil" class="fas fa-sun"></i>
+            </div>
+        </div>
+    </header>
+    <main id="main">
+        <h1>Non disponible pour le moment</h1>
+    </main>
+    <footer>
+        <div id="position">
+            <p id="position_texte"></p>
+            <a href="https://openweathermap.org/current" title="Data infos" target="_blank" class="dataInfos">D'où proviennent les données météo ?</a>
+            <a href="https://fontawesome.com/" title="Intégration d'icons gratuit" target="_blank" class="dataInfos">Icons utilisé sur l'application</a>
+            <a href="mailto:bodineaudavidpro@gmail.com" title="Mail de contact" class="dataInfos">Bugs, Suggestions ?</a>
+        </div>
+    </footer>
+    <script type="text/javascript" src="modeAffichage_previsions.js"></script>
+</body>
+</html>

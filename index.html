@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Application météo">
     <script src="https://kit.fontawesome.com/9b758e3bf3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="index_style.css">
+    <link rel="stylesheet" href="style_general.css">
     <link rel="stylesheet" href="button.css">
     <link rel="icon" type="image/png" href="icon/png-icon-sun2.png">
         
@@ -34,7 +34,8 @@
                 <input type="text" name="choice_city" value="Paris" id="choice">
                 <button onclick="choiceCity()" name="submit" value="Rechercher la ville" class="buttonP btn"><span>Rechercher <i class="fas fa-search"></i></span></button>
             </form>
-             <button onclick="gpsVerif()" name="gpsCoords" value="Météo par GPS" class="buttonP btn" id="GPS"><span>Localiser ma position <i class="fas fa-search-location"></i></span></button>
+            <button onclick="gpsVerif()" name="gpsCoords" value="Météo par GPS" class="buttonP btn" id="GPS"><span>Localiser ma position <i class="fas fa-search-location"></i></span></button>
+            <a href="previsions.html" id="previsions"><button class="buttonP btn"><span>Prévisions météo <i class="fas fa-sun"></i></span></button></a>
         </div>
         <div>
             <h1 id="ville"></h1>
@@ -56,8 +57,17 @@
                 <li id="li1"></li>
                 <li id="li5"></li>
                 <li id="li6"></li>
+                <div class="divProgress">
+                    <p class="progressGeneral"> <i title="Soleil" class="fas fa-sun"></i></p>
+                    <progress id="progress" title="Couverture du ciel" class="progressGeneral" max="100" value=""></progress>
+                    <p class="progressGeneral"><i title="Nuageux" class="fas fa-cloud"></i></p>
+                </div>
                 <li id="li7"></li>
-                <li id="li8"></li>
+                <div class="divProgress">
+                    <p class="progressWind"><i class="fab fa-pagelines"></i></p>
+                    <progress id="progress2" class="progressGeneral" title="Vent (max : 130km/h)" class="progressWind" max="130" value=""></progress>
+                    <p class="progressWind"><i class="fas fa-wind"></i></p>
+                </div>
             </ul>
         </div>
         <div class="container">

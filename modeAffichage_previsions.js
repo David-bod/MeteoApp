@@ -9,10 +9,6 @@ function modeAffichage(){
         let li6 = document.getElementById("value6");
         let li7 = document.getElementById("value7");
         let li8 = document.getElementById("value8");
-        const idVille = document.getElementById("ville");
-        const containWeather1 = document.getElementById("bc1");
-        const containWeather2 = document.getElementById("bc2");
-        const containWeather3 = document.getElementById("bc3");
         const buttonChangeText = document.getElementById("darkText"); // vers le span texte
         const marginCoords = document.getElementById("position_texte");
 
@@ -25,10 +21,6 @@ function modeAffichage(){
         li6.style.color = "black";
         li7.style.color = "black";
         li8.style.color = "black";
-        idVille.style.color = "black";
-        containWeather1.style.backgroundColor = "rgb(130, 130, 130, 0.5)";
-        containWeather2.style.backgroundColor = "rgb(130, 130, 130, 0.5)";
-        containWeather3.style.backgroundColor = "rgb(130, 130, 130, 0.5)";
         marginCoords.style.color = "black";
         
 // PASSAGE EN MODE CLAIR
@@ -47,10 +39,6 @@ function modeAffichage(){
         let li6 = document.getElementById("value6");
         let li7 = document.getElementById("value7");
         let li8 = document.getElementById("value8");
-        const idVille = document.getElementById("ville");
-        const containWeather1 = document.getElementById("bc1");
-        const containWeather2 = document.getElementById("bc2");
-        const containWeather3 = document.getElementById("bc3");
         const buttonChangeText = document.getElementById("darkText"); // vers le span texte
         const marginCoords = document.getElementById("position_texte");
 
@@ -63,10 +51,6 @@ function modeAffichage(){
         li6.style.color = "white";
         li7.style.color = "white";
         li8.style.color = "white";
-        idVille.style.color = "white";
-        containWeather1.style.backgroundColor = "rgb(34, 31, 31, 0.5)";
-        containWeather2.style.backgroundColor = "rgb(34, 31, 31, 0.5)";
-        containWeather3.style.backgroundColor = "rgb(34, 31, 31, 0.5)";
         marginCoords.style.color = "white";
 
         buttonChangeText.innerHTML = "Mode clair ";
@@ -87,10 +71,6 @@ function lightActivate(){
     let li6 = document.getElementById("value6");
     let li7 = document.getElementById("value7");
     let li8 = document.getElementById("value8");
-    const idVille = document.getElementById("ville");
-    const containWeather1 = document.getElementById("bc1");
-    const containWeather2 = document.getElementById("bc2");
-    const containWeather3 = document.getElementById("bc3");
     const buttonChangeText = document.getElementById("darkText"); // vers le span texte
     const marginCoords = document.getElementById("position_texte");
 
@@ -103,10 +83,6 @@ function lightActivate(){
     li6.style.color = "black";
     li7.style.color = "black";
     li8.style.color = "black";
-    idVille.style.color = "black";
-    containWeather1.style.backgroundColor = "rgb(130, 130, 130, 0.5)";
-    containWeather2.style.backgroundColor = "rgb(130, 130, 130, 0.5)";
-    containWeather3.style.backgroundColor = "rgb(130, 130, 130, 0.5)";
     marginCoords.style.color = "black";
 
 

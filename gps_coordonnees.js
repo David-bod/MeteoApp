@@ -1,3 +1,5 @@
+// VERIFICATION SI LE GPS EST DISPONIBLE DANS LE NAVIGATEUR
+
 if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(function(position) { // RECUPERATION POSITION GPS
         console.log(position.coords.latitude);
@@ -13,7 +15,10 @@ if ("geolocation" in navigator) {
     positionGPS.innerHTML = "Coordonnées GPS non disponibles actuellement.";
 }
 
-async function fonctionRecupDataGPS(){ // RECUPERATION DES DONNEES
+// ---------------------------------------------------------------------------------------------------------------------------------
+// RECUPERATION DES DONNEES
+
+async function fonctionRecupDataGPS(){ 
     console.log("Fonction GPS OK");
 
     const recupDataJSON = await getApiData;
@@ -25,7 +30,7 @@ async function fonctionRecupDataGPS(){ // RECUPERATION DES DONNEES
     choice.value = localStorage.getItem("city");
 
     const weatherClouds = document.getElementById("li1"); // TYPE DE NUAGE ET DESCRIPTION DETAILLES
-    weatherClouds.innerHTML = "Le temps est actuellement : " + recupDataJSON.list[0].weather[0].description;
+    weatherClouds.innerHTML = "Actuellement : " + recupDataJSON.list[0].weather[0].description;
 
     const weatherTemperature = document.getElementById("li2"); // TEMPERATURE + CONVERSION EN CELCIUS
     let tempBrut = recupDataJSON.list[0].main.temp - 273.15;
@@ -43,11 +48,10 @@ async function fonctionRecupDataGPS(){ // RECUPERATION DES DONNEES
         weatherHumidity.style.color = "#EB984E";
     }
 
-    const weatherVisibility = document.getElementById("li5"); // VISIBILITE EN METRES
-    weatherVisibility.innerHTML = "Visibilité : Non disponible par GPS";
-
     const weatherCloudsPercentage = document.getElementById("li6"); // POUCENTAGE DE NUAGES
     weatherCloudsPercentage.innerHTML = "Ciel couvert à : " + recupDataJSON.list[0].clouds.all + "%";
+    const progress = document.getElementById("progress");
+    progress.value = recupDataJSON.list[0].clouds.all;
 
     const weatherWindSpeed = document.getElementById("li7"); // VITESSE DU VENT
     let speedBrut = recupDataJSON.list[0].wind.speed * 3.6;
@@ -68,9 +72,12 @@ async function fonctionRecupDataGPS(){ // RECUPERATION DES DONNEES
     }else{
         weatherWindSpeed.style.color = "#8E44AD";
     }
+    const progress2 = document.getElementById("progress2");
+    progress2.value = resultatSpeed;
 
+// AFFICHAGE DES LOGOS PAR RAPPORT AU TEMPS EN DIRECT ------------------------------------------------------------------------------
 
-    if(recupDataJSON.list[0].weather[0].description === "couvert" || recupDataJSON.list[0].weather[0].description === "nuageux"){ // AFFICHAGE DES LOGOS
+    if(recupDataJSON.list[0].weather[0].description === "couvert" || recupDataJSON.list[0].weather[0].description === "nuageux"){
         initIcons();
         const typeOfCloud = document.getElementById("3");
         typeOfCloud.title = "Actuellement " + recupDataJSON.list[0].weather[0].description;
@@ -91,7 +98,7 @@ async function fonctionRecupDataGPS(){ // RECUPERATION DES DONNEES
         typeOfCloud.style.color = "#C3B46E";
         typeOfCloud.style.fontSize = "3em";
         typeOfCloud.style.transition = "2s";
-    }else if(recupDataJSON.weather[0].description === "bruine légère"){
+    }else if(recupDataJSON.weather[0].description === "bruine légère" || recupDataJSON.weather[0].description === "brume" || recupDataJSON.weather[0].description === "brouillard"){
         initIcons();
         const typeOfCloud = document.getElementById("2bis");
         typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
@@ -122,6 +129,9 @@ async function fonctionRecupDataGPS(){ // RECUPERATION DES DONNEES
     }
 
 }
+
+// ---------------------------------------------------------------------------------------------------------------------------------
+// INITIALISATION DES ICONS A 1EM ET COULEUR NOIR
 
 function initIcons(){
     const typeOfCloud1 = document.getElementById("1"); // cherche les éléments

@@ -1,3 +1,5 @@
+// SUGGESTIONS DE VILLE DANS LE HEADER HTML
+
 function cannes(){
     localStorage.removeItem("city");
     localStorage.setItem("city", "Cannes");

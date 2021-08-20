@@ -49,6 +49,10 @@ body{
     color: black;
 }
 
+#previsions{
+    margin-left: 5px;
+}
+
 h1, h2, h3, h4, p, li{
     color: white;
 }
@@ -87,6 +91,7 @@ h3{
 #search{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 #GPS{
@@ -129,6 +134,22 @@ li{
     width: 330px;
     font-size: 1em;
     margin: auto;
+}
+
+.progressGeneral{
+    color: white;
+}
+
+#progress, #progress2{
+    border-radius: 2px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.divProgress{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #line_legend p{
@@ -193,7 +214,6 @@ li{
     background-color: rgb(54, 51, 45);
     color: rgb(255, 255, 255);
 }
-
 
 /* LEGEND COLOR */
 
