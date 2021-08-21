@@ -116,9 +116,8 @@ li{
 }
 
 .container_weather{
-    border: 2px solid rgb(0, 0, 0);
-    background-color: rgb(34, 31, 31, 0.5);
-    border-radius: 10px;
+    background-color: rgb(34, 31, 31, 0.4);
+    border-radius: 5px;
     padding: 15px;
     width: 25%;
     min-width: 300px;
@@ -126,9 +125,8 @@ li{
 }
 
 .container_legend{
-    border: 2px solid rgb(0, 0, 0);
-    background-color: rgb(34, 31, 31, 0.5);
-    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
     width: 330px;
@@ -136,8 +134,9 @@ li{
     margin: auto;
 }
 
-.progressGeneral{
-    color: white;
+.container_legend:hover, .container_weather:hover{
+    transform: scale(1.05);
+    transition: 1s;
 }
 
 #progress, #progress2, #progress3{
@@ -159,10 +158,6 @@ li{
     flex-wrap: wrap;
     color: white;
     font-size: 0.6em;
-}
-
-#line_legend p i{
-    margin-right: 5px;
 }
 
 #choice{
@@ -218,6 +213,10 @@ li{
 
 /* LEGEND COLOR */
 
+#TB, #B, #AB, #MO, #MA, #TM, #E{
+    margin-right: 3px;
+}
+
 #TB{
     color: #196F3D;
 }
@@ -244,18 +243,4 @@ li{
 
 #E{
     color: #8E44AD;
-}
-
-/* oups */
-
-.oups{
-    color: red;
-    background-color: rgb(255, 230, 162);
-    margin-top: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    max-width: 800px;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
 }

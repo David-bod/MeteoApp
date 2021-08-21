@@ -155,7 +155,21 @@ async function fonctionRecupData(){ // RECUPERATION DES DONNEES
         typeOfCloud.style.color = "gray";
         typeOfCloud.style.fontSize = "3em";
         typeOfCloud.style.transition = "2s";
+    }else if(recupDataJSON.weather[0].description === "pluie modérée"){
+        const typeOfCloud = document.getElementById("1");
+        typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
+        typeOfCloud.style.color = "#4386FF";
+        typeOfCloud.style.fontSize = "3em";
+        typeOfCloud.style.transition = "2s";
+    }else if(recupDataJSON.weather[0].description === "légère pluie"){
+        const typeOfCloud = document.getElementById("2");
+        typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
+        typeOfCloud.style.color = "#A5BCE5";
+        typeOfCloud.style.fontSize = "3em";
+        typeOfCloud.style.transition = "2s";
     }
+
+        // RESTE ECLAIRCIE, ORAGE et NEIGE A DEFINIR
 
 // ---------------------------------------------------------------------------------------------------------------------------------
 

@@ -31,7 +31,7 @@
         </div>
         <div id="search">
             <form id="formSearch">
-                <input type="text" name="choice_city" value="Paris" id="choice">
+                <input type="text" name="choice_city" value="Paris" id="choice" maxlength="25" minlength="2">
                 <button onclick="choiceCity()" name="submit" value="Rechercher la ville" class="buttonP btn"><span>Rechercher <i class="fas fa-search"></i></span></button>
             </form>
             <button onclick="gpsVerif()" name="gpsCoords" value="Météo par GPS" class="buttonP btn" id="GPS"><span>Localiser ma position <i class="fas fa-search-location"></i></span></button>
@@ -58,14 +58,14 @@
                 <li id="li5"></li>
                 <li id="li6"></li>
                 <div class="divProgress">
-                    <p class="progressGeneral"> <i title="Soleil" class="fas fa-sun"></i></p>
-                    <progress id="progress" title="Couverture du ciel" class="progressGeneral" max="100" value=""></progress>
+                    <p class="progressGeneral"> <i title="Ensoleillé" class="fas fa-sun"></i></p>
+                    <progress id="progress" title="Couverture du ciel" class="progressGeneral" max="100"></progress>
                     <p class="progressGeneral"><i title="Nuageux" class="fas fa-cloud"></i></p>
                 </div>
                 <li id="li7"></li>
                 <div class="divProgress">
                     <p class="progressWind"><i class="fab fa-pagelines"></i></p>
-                    <progress id="progress2" class="progressGeneral" title="Vent (max : 130km/h)" class="progressWind" max="130" value=""></progress>
+                    <progress id="progress2" title="Vent (max : 130km/h)" class="progressWind" max="130"></progress>
                     <p class="progressWind"><i class="fas fa-wind"></i></p>
                 </div>
             </ul>
