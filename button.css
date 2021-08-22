@@ -152,8 +152,17 @@
       margin-top: 20px;
     }
 
+    #previsions{
+      margin-left: 0px;
+    }
+
     #cityGeo{
       margin-top: 35px;
+    }
+
+    #cityGeo2{
+      position: relative;
+      margin-top: 20px;
     }
 
     .container_legend{

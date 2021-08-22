@@ -190,16 +190,30 @@ li{
     border: 1px solid rgb(255, 255, 255);
     cursor: pointer;
     display: none;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
     margin-top: 25px;
     z-index: 1;
     overflow: hidden;
 }
 
-#cityGeo:hover{
-    background-color: rgb(116, 148, 124, 0.7);
-    transition: 1s;
+#cityGeo2{
+    position: absolute;
+    color: blanchedalmond;
+    background-color: rgb(116, 148, 124);
+    height: 20px;
+    width: 127px;
+    border: 1px solid rgb(255, 255, 255);
+    cursor: pointer;
+    display: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-top: 45px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#cityGeo:hover, #cityGeo2{
+    background-color: rgba(85, 85, 85, 1);
+    transition: 0.5s;
 }
 
 .favContainer{
