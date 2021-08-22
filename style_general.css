@@ -94,6 +94,16 @@ h3{
     flex-wrap: wrap;
 }
 
+#formSearch{
+    display: flex;
+    align-items: flex-end;
+}
+
+#buttonSearch{
+    display: flex;
+    margin-left: 5px;
+}
+
 #GPS{
     margin-left: 5px;
 }
@@ -162,8 +172,33 @@ li{
 
 #choice{
     width: 120px;
-    height: 19px;
+    height: 20px;
     border-radius: 5px;
+}
+
+#formSearchSpan{
+    display: flex;
+    flex-direction: column;
+}
+
+#cityGeo{
+    position: absolute;
+    color: blanchedalmond;
+    background-color: rgb(116, 148, 124);
+    height: 20px;
+    width: 127px;
+    border: 1px solid rgb(255, 255, 255);
+    cursor: pointer;
+    display: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-top: 25px;
+    z-index: 1;
+}
+
+#cityGeo:hover{
+    background-color: rgb(116, 148, 124, 0.7);
+    transition: 1s;
 }
 
 .favContainer{
@@ -244,3 +279,54 @@ li{
 #E{
     color: #8E44AD;
 }
+
+/* AUTOCOMPLETION STYLE */
+/*
+* { box-sizing: border-box; }
+body {
+  font: 16px Arial;
+}
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+
+*/

@@ -149,6 +149,11 @@
 
     #GPS{
       margin-left: 0px;
+      margin-top: 20px;
+    }
+
+    #cityGeo{
+      margin-top: 35px;
     }
 
     .container_legend{

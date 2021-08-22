@@ -2,8 +2,6 @@
 
 if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(function(position) { // RECUPERATION POSITION GPS
-        console.log(position.coords.latitude);
-        console.log(position.coords.longitude);
         const positionGPS = document.getElementById("position_texte");
         positionGPS.innerHTML = "Latitude : " + position.coords.latitude + " - Longitude : " + position.coords.longitude;
         localStorage.setItem("lat", position.coords.latitude);
@@ -16,11 +14,33 @@ if ("geolocation" in navigator) {
 }
 
 // ---------------------------------------------------------------------------------------------------------------------------------
+// RECUPERATION DES DONNEES AVEC LA FONCTION GPS
+
+function gpsVerif(){ // XMLHTTPREQUEST POUR GPS SEULEMENT ET VERIF LOCALSTORAGE LATITUDE ET LONGITUDE
+    if(localStorage.getItem("lat") != null && localStorage.getItem("long") != null){
+        let url = "https://api.openweathermap.org/data/2.5/find?lat=" + localStorage.getItem("lat") + "&lon=" + localStorage.getItem("long") + "&cnt=5&appid=83e43e88bae5408164e0f42de0a475a4&lang=FR";
+        getApiData = new Promise((resolve) => {
+            var getData = new XMLHttpRequest()
+            getData.onload = function () {
+                if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+                    resolve(JSON.parse(this.responseText))
+                    console.log("Data récupérée (fonctionGetApi)");
+                    fonctionRecupDataGPS();
+                } else {
+                    reject = console.log("Erreur dans le chargement de la page. Essayez de selectionner une ville. Si le problème persiste, contactez l'admin du site.");
+                    return
+                }
+            }
+            getData.open("GET", url);
+            getData.send();
+        });
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------------------
 // RECUPERATION DES DONNEES
 
 async function fonctionRecupDataGPS(){ 
-    console.log("Fonction GPS OK");
-
     const recupDataJSON = await getApiData;
 
     const villeData = document.getElementById("ville"); // AFFICHAGE VILLE ET PAYS
@@ -119,12 +139,15 @@ async function fonctionRecupDataGPS(){
         typeOfCloud.style.color = "#A5BCE5";
         typeOfCloud.style.fontSize = "3em";
         typeOfCloud.style.transition = "2s";
+    }else if(recupDataJSON.weather[0].description === "orage"){
+        const typeOfCloud = document.getElementById("bolt");
+        typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
+        typeOfCloud.style.color = "#FFD000";
+        typeOfCloud.style.fontSize = "3em";
+        typeOfCloud.style.transition = "2s";
     }
 
         // RESTE ECLAIRCIE, ORAGE et NEIGE A DEFINIR
-
-    console.log("Affichage des paramètres : OK");
-    console.log("Ville affichée : " + recupDataJSON.list[0].name)
 
     if(localStorage.getItem("fav1") != null && localStorage.getItem("fav2") == null){ // VERIFICATION ET AFFICHAGE FAVORIS
         const fav1 = document.getElementById("fav1");
@@ -144,6 +167,8 @@ async function fonctionRecupDataGPS(){
         title.innerHTML = localStorage.getItem("GPS");
     }
 
+    location.reload(); // permet de fix le bug suivant : (Ville 1 > GPS (Ville 2) > actualisation de la page > Ville 1)
+                       // Maintenant : (Ville 1 > GPS (Ville 2) > actualisation de la page > Ville 2)
 }
 
 // ---------------------------------------------------------------------------------------------------------------------------------

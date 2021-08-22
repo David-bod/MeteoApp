@@ -1,7 +1,5 @@
 let url = "https://api.openweathermap.org/data/2.5/weather?q=" + localStorage.getItem("city") + ",fr&appid=83e43e88bae5408164e0f42de0a475a4&lang=FR";
 
-choice.value = localStorage.getItem("city"); // INTEGRATION DE LA VILLE DANS L'INPUT
-
 // ---------------------------------------------------------------------------------------------------------------------------------
 // SI LE LOCALSTORAGE VIDE
 
@@ -9,32 +7,6 @@ if(localStorage.getItem("city") == null){
     alert("Oups, il semblerait qu'aucune ville ne soit sélectionnée.");
 }else{ // SINON LANCER LA FONCTION
     fonctionGetApi(); 
-}
-
-// ---------------------------------------------------------------------------------------------------------------------------------
-// RECUPERATION DES DONNEES AVEC LA FONCTION GPS
-
-function gpsVerif(){ // XMLHTTPREQUEST POUR GPS SEULEMENT ET VERIF LOCALSTORAGE LATITUDE ET LONGITUDE
-    if(localStorage.getItem("lat") != null && localStorage.getItem("long") != null){
-        let url = "https://api.openweathermap.org/data/2.5/find?lat=" + localStorage.getItem("lat") + "&lon=" + localStorage.getItem("long") + "&cnt=5&appid=83e43e88bae5408164e0f42de0a475a4&lang=FR"
-        console.log("Localisation GPS en cours");
-        getApiData = new Promise((resolve) => {
-            var getData = new XMLHttpRequest()
-            getData.onload = function () {
-                if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-                    resolve(JSON.parse(this.responseText))
-                    console.log(this.response);
-                    fonctionRecupDataGPS();
-                } else {
-                    reject = console.log("Erreur dans le chargement de la page. Essayez de selectionner une ville. Si le problème persiste, contactez l'admin du site.");
-                    return
-                }
-            }
-            getData.open("GET", url);
-            getData.send();
-            console.log("Connexion OK");
-        });
-    }
 }
 
 // ---------------------------------------------------------------------------------------------------------------------------------
@@ -49,7 +21,7 @@ function fonctionGetApi(){
             getData.onload = function () {
                 if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
                     resolve(JSON.parse(this.responseText))
-                    console.log(this.response);
+                    console.log("Connexion avec l'API effectuée.");
                     fonctionRecupData();
                 } else {
                     reject = console.log("Erreur dans le chargement de la page. Essayez de selectionner une ville. Si le problème persiste, contactez l'admin du site.");
@@ -73,6 +45,7 @@ async function fonctionRecupData(){ // RECUPERATION DES DONNEES
     }
 
     initIcons(); // initialisation des icons à 1em
+    console.log("Ville affichée : " + localStorage.getItem("city") + ".");
 
     localStorage.removeItem("GPS"); // remove du GPS
 
@@ -167,6 +140,12 @@ async function fonctionRecupData(){ // RECUPERATION DES DONNEES
         typeOfCloud.style.color = "#A5BCE5";
         typeOfCloud.style.fontSize = "3em";
         typeOfCloud.style.transition = "2s";
+    }else if(recupDataJSON.weather[0].description === "orage"){
+        const typeOfCloud = document.getElementById("bolt");
+        typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
+        typeOfCloud.style.color = "#FFD000";
+        typeOfCloud.style.fontSize = "3em";
+        typeOfCloud.style.transition = "2s";
     }
 
         // RESTE ECLAIRCIE, ORAGE et NEIGE A DEFINIR
@@ -209,7 +188,6 @@ function choiceCity(){
     localStorage.removeItem("city");
     const choice = document.getElementById("choice");
     localStorage.setItem("city", choice.value);
-    console.log("valeur city initialisée");
 }
 
 // ---------------------------------------------------------------------------------------------------------------------------------

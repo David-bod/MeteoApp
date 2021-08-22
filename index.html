@@ -31,8 +31,11 @@
         </div>
         <div id="search">
             <form id="formSearch">
-                <input type="text" name="choice_city" value="Paris" id="choice" maxlength="25" minlength="2">
-                <button onclick="choiceCity()" name="submit" value="Rechercher la ville" class="buttonP btn"><span>Rechercher <i class="fas fa-search"></i></span></button>
+                <div id="formSearchSpan">
+                    <input onkeyUp="fonctionRecupDataGeo()" onChange="fonctionRecupDataGeo()" type="text" name="choice_city" placeholder="Ville à rechercher" id="choice" maxlength="25" minlength="2" autocomplete="off">
+                    <span id="cityGeo" onclick="injectionInput()"></span>
+                </div>
+                <button onclick="choiceCity()" name="submit" value="Rechercher la ville" class="buttonP btn" id="buttonSearch"><span id="suggestionsGeo">Rechercher <i class="fas fa-search"></i></span></button>
             </form>
             <button onclick="gpsVerif()" name="gpsCoords" value="Météo par GPS" class="buttonP btn" id="GPS"><span>Localiser ma position <i class="fas fa-search-location"></i></span></button>
             <a href="previsions.html" id="previsions"><button class="buttonP btn"><span>Prévisions météo <i class="fas fa-sun"></i></span></button></a>
@@ -121,5 +124,6 @@
     <script type="text/javascript" src="suggestions.js"></script>
     <script type="text/javascript" src="gps_coordonnees.js"></script>
     <script type="text/javascript" src="modeAffichage.js"></script>
+    <script type="text/javascript" src="autocompletion.js"></script>
 </body>
 </html>
