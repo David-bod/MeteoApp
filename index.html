@@ -32,7 +32,7 @@
         <div id="search">
             <form id="formSearch">
                 <div id="formSearchSpan">
-                    <input onkeyUp="fonctionRecupDataGeo()" onChange="fonctionRecupDataGeo()" type="text" name="choice_city" placeholder="Ville à rechercher" id="choice" maxlength="25" minlength="2" autocomplete="off">
+                    <input onkeyUp="fonctionRecupDataGeo()" onChange="fonctionRecupDataGeo()" type="text" name="choice_city" placeholder="Ville à rechercher" id="choice" maxlength="25" minlength="1" autocomplete="off">
                     <span id="cityGeo" onclick="injectionInput()"></span>
                     <span id="cityGeo2" onclick="injectionInput2()"></span>
                 </div>
@@ -114,12 +114,14 @@
         <button onclick="ajouterFavoris()" class="buttonP btn"><span>Ajouter aux favoris <i class="far fa-heart"></i></span></button>
     </main>
     <footer>
+        <p id="position_texte"></p>
         <div id="position">
-            <p id="position_texte"></p>
             <a href="https://openweathermap.org/current" title="Data infos" target="_blank" class="dataInfos">D'où proviennent les données météo ?</a>
+            <a href="https://geo.api.gouv.fr/decoupage-administratif/communes" title="Data infos" target="_blank" class="dataInfos">Données des villes</a>
             <a href="https://fontawesome.com/" title="Intégration d'icons gratuit" target="_blank" class="dataInfos">Icons utilisé sur l'application</a>
             <a href="mailto:bodineaudavidpro@gmail.com" title="Mail de contact" class="dataInfos">Bugs, Suggestions ?</a>
         </div>
+        <p id="version">Version 18.2</p>
     </footer>
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="suggestions.js"></script>

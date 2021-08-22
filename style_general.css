@@ -236,21 +236,25 @@ li{
 #position{
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    margin-top: 30px;
+    flex-wrap: wrap;
     margin-bottom: 50px;
+    font-size: 0.7em;
+}
+
+#position_texte{
+    margin-top: 30px;
+    margin-bottom: 20px;
     font-size: 0.7em;
 }
 
 .dataInfos{
     margin-top: 10px;
-    color: black;
+    margin-left: 10px;
+    color: rgb(255, 255, 255);
     text-decoration: none;
-    background-color: blanchedalmond;
+    background-color: rgb(173, 166, 156);
     width: 210px;
     padding: 3px;
-    margin-left: auto;
-    margin-right: auto;
     border-radius: 20px;
 }
 
@@ -259,6 +263,12 @@ li{
     transition: 0.5s;
     background-color: rgb(54, 51, 45);
     color: rgb(255, 255, 255);
+}
+
+#version{
+    font-size: 0.5em;
+    color: slategrey;
+    margin-bottom: 10px;
 }
 
 /* LEGEND COLOR */
