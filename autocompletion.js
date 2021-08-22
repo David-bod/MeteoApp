@@ -55,6 +55,7 @@ if(localStorage.getItem("valInput") == null){
         const recupDataGeo = await getApiDataGeo;
         let searchSuggestions = document.getElementById("cityGeo");
         searchSuggestions.innerHTML = recupDataGeo[0].nom + " (" + recupDataGeo[0].departement.code + ")";
+        searchSuggestions.title = recupDataGeo[0].nom + " (" + recupDataGeo[0].departement.code + ")";
      }
 
  }

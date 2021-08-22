@@ -194,6 +194,7 @@ li{
     border-bottom-right-radius: 5px;
     margin-top: 25px;
     z-index: 1;
+    overflow: hidden;
 }
 
 #cityGeo:hover{
