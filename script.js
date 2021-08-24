@@ -1,10 +1,11 @@
 let url = "https://api.openweathermap.org/data/2.5/weather?q=" + localStorage.getItem("city") + ",fr&appid=83e43e88bae5408164e0f42de0a475a4&lang=FR";
-
 // ---------------------------------------------------------------------------------------------------------------------------------
 // SI LE LOCALSTORAGE VIDE
 
 if(localStorage.getItem("city") == null){
     alert("Oups, il semblerait qu'aucune ville ne soit sélectionnée.");
+    localStorage.setItem("city", "Paris");
+    location.reload();
 }else{ // SINON LANCER LA FONCTION
     fonctionGetApi(); 
 }
@@ -205,12 +206,13 @@ function clearLocalStorage(){
 // ---------------------------------------------------------------------------------------------------------------------------------
 // FONCTION AJOUTER DES FAVORIS
 
-function ajouterFavoris(){ 
+function ajouterFavoris(){
+    const villeActuelle = localStorage.getItem("city");
     if(localStorage.getItem("fav1") == null && localStorage.getItem("fav2") != localStorage.getItem("city")){
-        localStorage.setItem("fav1", choice.value);
+        localStorage.setItem("fav1", villeActuelle);
         location.reload();
     }else if(localStorage.getItem("fav1") != null && localStorage.getItem("fav2") == null && localStorage.getItem("fav1") != localStorage.getItem("city")){
-        localStorage.setItem("fav2", choice.value);
+        localStorage.setItem("fav2", villeActuelle);
         location.reload();
     }else if(localStorage.getItem("fav1") != null && localStorage.getItem("fav2") != null){
         let favMax = confirm("Vous avez atteint le nombre maximum de favoris. Voulez vous les supprimer ?"); // FAVORIS PLEINS
