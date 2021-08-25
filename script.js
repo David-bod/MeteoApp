@@ -22,7 +22,6 @@ function fonctionGetApi(){
             getData.onload = function () {
                 if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
                     resolve(JSON.parse(this.responseText))
-                    console.log("Connexion avec l'API effectuée.");
                     fonctionRecupData();
                 } else {
                     reject = console.log("Erreur dans le chargement de la page. Essayez de selectionner une ville. Si le problème persiste, contactez l'admin du site.");
@@ -253,4 +252,24 @@ function fav2Weather(){
     choice.value = localStorage.getItem("fav2");
     choiceCity();
     location.reload();
+}
+
+// VERIFICATION DES CARACTERES UTILISES DANS L'INPUT RECHERCHER
+
+function verif(){
+    let inputText = document.getElementById("choice").value;
+    let regex = /^[a-zA-Z\-]+$/;
+    console.log(inputText);
+
+    if (!regex.test(inputText)) {
+        console.log("Caractère interdit.");
+      resetInput();
+    }else{
+        fonctionRecupDataGeo();
+    }
+}
+
+function resetInput(){
+    let resetInput = document.getElementById("choice");
+    resetInput.value = "";
 }

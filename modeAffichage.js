@@ -26,9 +26,9 @@ function modeAffichage(){
         li7.style.color = "black";
         li8.style.color = "black";
         idVille.style.color = "black";
-        containWeather1.style.backgroundColor = "rgb(130, 130, 130, 0.5)";
-        containWeather2.style.backgroundColor = "rgb(130, 130, 130, 0.5)";
-        containWeather3.style.backgroundColor = "rgb(130, 130, 130, 0.5)";
+        containWeather1.style.backgroundColor = "rgb(0, 0, 00, 0.8)";
+        containWeather2.style.backgroundColor = "rgb(0, 0, 00, 0.8)";
+        containWeather3.style.backgroundColor = "rgb(0, 0, 00, 0.8)";
         marginCoords.style.color = "black";
         
 // PASSAGE EN MODE CLAIR
