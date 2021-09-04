@@ -3,7 +3,7 @@
 if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(function(position) { // RECUPERATION POSITION GPS
         const positionGPS = document.getElementById("position_texte");
-        positionGPS.innerHTML = "Latitude : " + position.coords.latitude + " - Longitude : " + position.coords.longitude;
+        positionGPS.innerHTML = "Latitude : " + position.coords.latitude.toFixed(4) + " - Longitude : " + position.coords.longitude.toFixed(4);
         localStorage.setItem("lat", position.coords.latitude);
         localStorage.setItem("long", position.coords.longitude);
         });
