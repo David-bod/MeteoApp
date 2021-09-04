@@ -49,20 +49,20 @@ async function fonctionRecupDataGPS(){
     localStorage.setItem("city", recupDataJSON.list[0].name);
     choice.value = localStorage.getItem("city");
 
-    const weatherClouds = document.getElementById("li1"); // TYPE DE NUAGE ET DESCRIPTION DETAILLES
+    const weatherClouds = document.getElementById("temps-actuel"); // TYPE DE NUAGE ET DESCRIPTION DETAILLES
     weatherClouds.innerHTML = "Actuellement : " + recupDataJSON.list[0].weather[0].description;
 
-    const weatherTemperature = document.getElementById("li2"); // TEMPERATURE + CONVERSION EN CELCIUS
+    const weatherTemperature = document.getElementById("temperature"); // TEMPERATURE + CONVERSION EN CELCIUS
     let tempBrut = recupDataJSON.list[0].main.temp - 273.15;
     let resultat = tempBrut.toFixed(2);
     weatherTemperature.innerHTML = "Température : " + resultat + "°C";
     const progress3 = document.getElementById("progress3");
     progress3.value = resultat + 15;
 
-    const weatherPressure = document.getElementById("li3"); // PRESSION ATMOSHPERIQUE
+    const weatherPressure = document.getElementById("pression-atmo"); // PRESSION ATMOSHPERIQUE
     weatherPressure.innerHTML = "Pression atmosphérique : " + recupDataJSON.list[0].main.pressure + " hPa";
 
-    const weatherHumidity = document.getElementById("li4"); // TAUX HUMIDITE DANS L'AIR
+    const weatherHumidity = document.getElementById("taux-humidite"); // TAUX HUMIDITE DANS L'AIR
     weatherHumidity.innerHTML = "Humidité dans l'air : " + recupDataJSON.list[0].main.humidity + "%";
     if(recupDataJSON.list[0].main.humidity >= 10 && recupDataJSON.list[0].main.humidity <= 70){
         weatherHumidity.style.color = "#196F3D";
@@ -70,12 +70,12 @@ async function fonctionRecupDataGPS(){
         weatherHumidity.style.color = "#EB984E";
     }
 
-    const weatherCloudsPercentage = document.getElementById("li6"); // POUCENTAGE DE NUAGES
+    const weatherCloudsPercentage = document.getElementById("couverture-ciel"); // POUCENTAGE DE NUAGES
     weatherCloudsPercentage.innerHTML = "Ciel couvert à : " + recupDataJSON.list[0].clouds.all + "%";
     const progress = document.getElementById("progress");
     progress.value = recupDataJSON.list[0].clouds.all;
 
-    const weatherWindSpeed = document.getElementById("li7"); // VITESSE DU VENT
+    const weatherWindSpeed = document.getElementById("vitesse-vent"); // VITESSE DU VENT
     let speedBrut = recupDataJSON.list[0].wind.speed * 3.6;
     let resultatSpeed = speedBrut.toFixed(2);
     weatherWindSpeed.innerHTML = "Vitesse du vent : " + resultatSpeed + " km/h";

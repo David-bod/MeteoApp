@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Application météo">
-    <script src="https://kit.fontawesome.com/9b758e3bf3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style_general.css">
-    <link rel="stylesheet" href="button.css">
-    <link rel="icon" type="image/png" href="icon/png-icon-sun2.png">
-        
-    <title id="title"></title>
-</head>
+<html lang="FR-fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Application météo">
+        <script src="https://kit.fontawesome.com/9b758e3bf3.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="index_style.css">
+        <link rel="stylesheet" href="index_button.css">
+        <link rel="icon" type="image/png" href="icon/png-icon-sun2.png">
+            
+        <title id="title"></title> <!-- Titre injecté par JS -->
+    </head>
 <body>
     <header>
-        <div id="suggestionsEtDarkMode">
+        <div id="suggestionsEtDarkMode"> <!-- Liste des villes en suggestions -->
             <ul id="suggestions">
                 <a id="s1" href="#" onclick="cannes()"><li id="value1">Cannes</li></a>
                 <a id="s2" href="#" onclick="marseille()"><li id="value2">Marseille</li></a>
@@ -22,28 +22,45 @@
                 <a id="s4" href="#" onclick="strasbourg()"><li id="value4">Strasbourg</li></a>
                 <a id="s5" href="#" onclick="brest()"><li id="value5">Brest</li></a>
                 <a id="s6" href="#" onclick="lyon()"><li id="value6">Lyon</li></a>
-                <a id="s7" href="#" onclick="cherbourg()"><li id="value7">Cherbourg-en-Cotentin</li></a>
+                <a id="s7" href="#" onclick="cherbourg()"><li id="value7">Cherbourg</li></a>
                 <a id="s8" href="#" onclick="saintL()"><li id="value8">Lille</li></a>
             </ul>
-            <div>
-                <button onclick="modeAffichage()" type="submit" name="mode" id="mode" title="Go dark"><span id="darkText">Mode clair </span><i class="fas fa-sun"></i></button>
+            <div> <!-- Bouton mode clair ou sombre -->
+                <button type="submit" name="mode" id="mode" title="Changer de couleur"><span id="darkText">Non disponible </span><i class="fas fa-sun"></i></button>
             </div>
         </div>
-        <div id="search">
-            <form id="formSearch">
-                <div id="formSearchSpan">
-                    <input onkeyup="verif()" type="text" name="choice_city" placeholder="Ville à rechercher" id="choice" maxlength="25" autocomplete="off">
-                    <span id="cityGeo" onclick="injectionInput()"></span>
-                    <span id="cityGeo2" onclick="injectionInput2()"></span>
-                </div>
-                <button onclick="choiceCity()" name="submit" value="Rechercher la ville" class="buttonP btn" id="buttonSearch"><span id="suggestionsGeo">Rechercher <i class="fas fa-search"></i></span></button>
-            </form>
-            <button onclick="gpsVerif()" name="gpsCoords" value="Météo par GPS" class="buttonP btn" id="GPS"><span>Localiser ma position <i class="fas fa-search-location"></i></span></button>
-            <a href="previsions.html" id="previsions"><button class="buttonP btn"><span>Prévisions météo <i class="fas fa-sun"></i></span></button></a>
-        </div>
         <div>
-            <h1 id="ville"></h1>
-            <div id="typeOfCloud">
+            <h1>La météo en direct</h1> <!-- Titre h1 -->
+        </div>
+        <div id="bloc-1-search">
+            <form id="form-search"> <!-- Champs de texte + bouton rechercher + 2 span pour la sugestions de ville Autocomplétion -->
+                <input onkeyup="verif()" type="text" name="choice_city" placeholder="Ville à rechercher" id="choice" maxlength="25" autocomplete="off">
+                <span id="cityGeo" onclick="injectionInput()"></span>
+                <span id="cityGeo2" onclick="injectionInput2()"></span>
+                <button onclick="choiceCity()" name="submit" value="Rechercher la ville" id="buttonSearch"><span id="suggestionsGeo"><i class="fas fa-search"></i></span></button>
+            </form>
+            <!-- Bouton pour localiser la position de l'utilisateur -->
+            <button onclick="gpsVerif()" name="gpsCoords" value="Météo par GPS" id="GPS"><span>Me localiser <i class="fas fa-search-location"></i></span></button>
+        </div>
+        <div> <!-- Liste des favoris en dessous de la barre de recherche -->
+            <ul class="container_favoris" id="bc3">
+                <h3>Vos favoris : </h3>
+                <div class="favContainer">
+                    <a href="#" onclick="fav1Weather()" title="Charger la ville"><li id="fav1"></li></a> <a href="#" onclick="deleteFav1()" title="Supprimer la ville des favoris"><i class="fas fa-times delete"></i></a>
+                </div>
+                <div class="favContainer">
+                    <a href="#" onclick="fav2Weather()" title="Charger la ville"><li id="fav2"></li></a> <a href="#" onclick="deleteFav2()" title="Supprimer la ville des favoris"><i class="fas fa-times delete"></i></a>
+                </div>
+            </ul>
+        </div>
+        <div id="bloc-ville">
+            <h2 id="ville">Ville ici</h2> <!-- Ville actuelle affichée à l'écran -->
+            <i class="far fa-play-circle"></i>
+        </div>
+    </header>
+    <main>
+        <div id="bloc-1-main">
+            <div id="typeOfCloud"> <!-- Types de nuages (icons) -->
                 <i id="bolt" title="Orage" class="fas fa-bolt"></i>
                 <i id="0" title="Neige" class="far fa-snowflake"></i>
                 <i id="1" title="Pluie" class="fas fa-cloud-showers-heavy"></i>
@@ -54,75 +71,54 @@
                 <i id="5" title="Soleil" class="fas fa-sun"></i>
             </div>
         </div>
-    </header>
-    <main id="main">
-        <div class="container">
-            <ul class="container_weather" id="bc1">
-                <li id="li1"></li>
-                <li id="li5"></li>
-                <li id="li6"></li>
-                <div class="divProgress">
-                    <p class="progressGeneral"> <i title="Ensoleillé" class="fas fa-sun"></i></p>
-                    <progress id="progress" title="Couverture du ciel" class="progressGeneral" max="100"></progress>
-                    <p class="progressGeneral"><i title="Nuageux" class="fas fa-cloud"></i></p>
-                </div>
-                <li id="li7"></li>
-                <div class="divProgress">
-                    <p class="progressWind"><i class="fab fa-pagelines"></i></p>
-                    <progress id="progress2" title="Vent (max : 130km/h)" class="progressWind" max="130"></progress>
-                    <p class="progressWind"><i class="fas fa-wind"></i></p>
-                </div>
-            </ul>
-        </div>
-        <div class="container">
-            <ul class="container_weather" id="bc2">
-                <li id="li2"></li>
-                <div class="divProgress">
-                    <p class="progressTemp"><i class="fas fa-temperature-low"></i></p>
-                    <progress id="progress3" class="progressGeneral" title="Température (de -15°C à 50°C)" class="progressTemp" max="65" value=""></progress>
-                    <p class="progressTemp"><i class="fas fa-temperature-high"></i></p>
-                </div>
-                <li id="li4"></li>
-                <li id="li3"></li>
-            </ul>
-        </div>
-        <div class="container">
-            <ul class="container_weather" id="bc3">
-                <h3>Liste des favoris <i id="AB" class="fas fa-star"></i></h3>
-                <div class="favContainer">
-                    <a href="#" onclick="fav1Weather()" title="Charger la ville"><li id="fav1"></li></a> <a href="#" onclick="deleteFav1()" title="Supprimer la ville des favoris"><i id="TM" class="fas fa-times"></i></a>
-                </div>
-                <div class="favContainer">
-                    <a href="#" onclick="fav2Weather()" title="Charger la ville"><li id="fav2"></li></a> <a href="#" onclick="deleteFav2()" title="Supprimer la ville des favoris"><i id="TM" class="fas fa-times"></i></a>
-                </div>
-            </ul>
-        </div>
-        <div class="container_legend">
-            <h2>Légende : </h2>
-            <div id="line_legend">
-                <p><i class="fas fa-circle" id="TB"></i>Très bien</p>
-                <p><i class="fas fa-circle" id="B"></i>Bien</p>
-                <p><i class="fas fa-circle" id="AB"></i>Assez bien</p>
-                <p><i class="fas fa-circle" id="MO"></i>Moyen</p>
-                <p><i class="fas fa-circle" id="MA"></i>Mauvais</p>
-                <p><i class="fas fa-circle" id="TM"></i>Très mauvais</p>
-                <p><i class="fas fa-circle" id="E"></i>Extrème</p>
+        <div id="bloc-2-main">
+            <div class="container">
+                <ul class="container_weather" id="bc1">
+                    <li id="temps-actuel"></li>
+                    <!-- <li id="li5"></li> / Non utilisé -->
+                    <li id="couverture-ciel"></li>
+                    <div class="divProgress"> <!-- Couverture du ciel -->
+                        <i title="Ensoleillé" class="fas fa-sun"></i>
+                        <progress id="progress" title="Couverture du ciel" class="progressGeneral" max="100"></progress>
+                        <i title="Nuageux" class="fas fa-cloud"></i>
+                    </div>
+                    <li id="vitesse-vent"></li> <!-- Vitesse du vent -->
+                    <div class="divProgress">
+                        <i class="fab fa-pagelines"></i>
+                        <progress id="progress2" title="Vent (max : 130km/h)" class="progressWind" max="130"></progress>
+                        <i class="fas fa-wind"></i>
+                    </div>
+                </ul>
+            </div>
+            <div class="container">
+                <ul class="container_weather" id="bc2">
+                    <li id="pression-atmo"></li> <!-- Pression atmosphérique -->
+                    <li id="temperature"></li> <!-- Température -->
+                    <div class="divProgress">
+                        <i class="fas fa-temperature-low"></i>
+                        <progress id="progress3" title="Température (de -15°C à 50°C)" class="progressTemp" max="65" value=""></progress>
+                        <i class="fas fa-temperature-high"></i>
+                    </div>
+                    <li id="taux-humidite"></li> <!-- Taux d'humidité -->
+                    <div class="divProgress">
+                        <i class="fas fa-tint-slash"></i>
+                        <progress id="progress4" title="Humidité dans l'air" class="progressHumidite" max="100" value=""></progress>
+                        <i class="fas fa-tint"></i>
+                    </div>
+                </ul>
             </div>
         </div>
-        <button onclick="fonctionGetApi()" class="buttonP btn"><span>Actualiser <i class="fas fa-sync"></i></span></button>
-        <button onclick="clearLocalStorage()" class="buttonP btn"><span>Vider le cache <i class="far fa-trash-alt"></i></span></button>
-        <button onclick="ajouterFavoris()" class="buttonP btn"><span>Ajouter aux favoris <i class="far fa-heart"></i></span></button>
     </main>
     <footer>
-        <p id="position_texte"></p>
-        <div id="position">
-            <a href="https://openweathermap.org/current" title="Data infos" target="_blank" class="dataInfos">D'où proviennent les données météo ?</a>
-            <a href="https://geo.api.gouv.fr/decoupage-administratif/communes" title="Data infos" target="_blank" class="dataInfos">Données des villes</a>
-            <a href="https://fontawesome.com/" title="Intégration d'icons gratuit" target="_blank" class="dataInfos">Icons utilisé sur l'application</a>
-            <a href="mailto:bodineaudavidpro@gmail.com" title="Mail de contact" class="dataInfos">Bugs, Suggestions ?</a>
+        <div>
+            <p id="position_texte"></p> <!-- Intégration Longitude et Latitude -->
+            <!-- Bouton Actualiser / Vider le cache et Ajouter aux favoris -->
+            <button onclick="fonctionGetApi()" class="bouton-general"><span>Actualiser <i class="fas fa-sync"></i></span></button>
+            <button onclick="clearLocalStorage()" class="bouton-general"><span>Vider le cache <i class="far fa-trash-alt"></i></span></button>
+            <button onclick="ajouterFavoris()" class="bouton-general"><span>Ajouter aux favoris <i class="far fa-heart"></i></span></button>
         </div>
-        <p id="version">Version Août 2021</p>
     </footer>
+    <!-- Injection des pages Javascript -->
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="suggestions.js"></script>
     <script type="text/javascript" src="gps_coordonnees.js"></script>

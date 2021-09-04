@@ -76,8 +76,9 @@ if(localStorage.getItem("valInput") == null){
 
         searchSuggestions.innerHTML = recupDataGeo[0].nom + " (" + recupDataGeo[0].departement.code + ")";
         searchSuggestions.title = recupDataGeo[0].nom + " (" + recupDataGeo[0].departement.code + ")";
-        searchSuggestions.style.color = "blanchedalmond";
-        searchSuggestions.style.backgroundColor = "rgb(116, 148, 124)";
+        searchSuggestions.style.color = "black";
+        searchSuggestions.style.backgroundColor = "rgb(255, 255, 255)";
+        searchSuggestions2.style.backgroundColor = "rgb(255, 255, 255)";
         searchSuggestions2.innerHTML = recupDataGeo[1].nom + " (" + recupDataGeo[1].departement.code + ")";
         searchSuggestions2.title = recupDataGeo[1].nom + " (" + recupDataGeo[1].departement.code + ")";
      }

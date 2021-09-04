@@ -102,7 +102,7 @@
     left: 0;
     bottom: 0;
     background: rgb(0, 0, 0); /* left + bottom  */
-    transition: all 0.6s ease;
+    transition: all 2s ease;
   }
 
   .btn span:before {

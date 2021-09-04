@@ -54,33 +54,35 @@ async function fonctionRecupData(){ // RECUPERATION DES DONNEES
     const villeData = document.getElementById("ville"); // AFFICHAGE VILLE ET PAYS
     villeData.innerHTML = recupDataJSON.name + ", " + recupDataJSON.sys.country;
 
-    const weatherClouds = document.getElementById("li1"); // TYPE DE NUAGE ET DESCRIPTION DETAILLES
+    const weatherClouds = document.getElementById("temps-actuel"); // TYPE DE NUAGE ET DESCRIPTION DETAILLES
     weatherClouds.innerHTML = "Actuellement : " +  recupDataJSON.weather[0].description;
 
-    const weatherTemperature = document.getElementById("li2"); // TEMPERATURE + CONVERSION EN CELCIUS
+    const weatherTemperature = document.getElementById("temperature"); // TEMPERATURE + CONVERSION EN CELCIUS
     let tempBrut = recupDataJSON.main.temp - 273.15;
     let resultat = tempBrut.toFixed(2);
     weatherTemperature.innerHTML = "Température : " + resultat + "°C";
     const progress3 = document.getElementById("progress3");
     progress3.value = resultat + 15;
 
-    const weatherPressure = document.getElementById("li3"); // PRESSION ATMOSHPERIQUE
+    const weatherPressure = document.getElementById("pression-atmo"); // PRESSION ATMOSHPERIQUE
     weatherPressure.innerHTML = "Pression atmosphérique : " + recupDataJSON.main.pressure + " hPa";
 
-    const weatherHumidity = document.getElementById("li4"); // TAUX HUMIDITE DANS L'AIR
+    const weatherHumidity = document.getElementById("taux-humidite"); // TAUX HUMIDITE DANS L'AIR
     weatherHumidity.innerHTML = "Humidité dans l'air : " + recupDataJSON.main.humidity + "%";
     if(recupDataJSON.main.humidity >= 10 && recupDataJSON.main.humidity <= 70){ // COULEUR PAR RAPPORT AU TAUX D'HUMIDITE
         weatherHumidity.style.color = "#196F3D";
     }else{
         weatherHumidity.style.color = "#EB984E";
     }
+    const progress4 = document.getElementById("progress4");
+    progress4.value = recupDataJSON.main.humidity;
 
-    const weatherCloudsPercentage = document.getElementById("li6"); // POUCENTAGE DE NUAGES
+    const weatherCloudsPercentage = document.getElementById("couverture-ciel"); // POURCENTAGE DE NUAGES
     weatherCloudsPercentage.innerHTML = "Ciel couvert à : " + recupDataJSON.clouds.all + "%";
     const progress = document.getElementById("progress");
     progress.value = recupDataJSON.clouds.all;
 
-    const weatherWindSpeed = document.getElementById("li7"); // VITESSE DU VENT
+    const weatherWindSpeed = document.getElementById("vitesse-vent"); // VITESSE DU VENT
     let speedBrut = recupDataJSON.wind.speed * 3.6;
     let resultatSpeed = speedBrut.toFixed(2);
     weatherWindSpeed.innerHTML = "Vitesse du vent : " + resultatSpeed + " km/h";
@@ -109,50 +111,58 @@ async function fonctionRecupData(){ // RECUPERATION DES DONNEES
         typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
         typeOfCloud.style.color = "grey";
         typeOfCloud.style.fontSize = "3em";
+        typeOfCloud.style.opacity = "1";
         typeOfCloud.style.transition = "2s";
     }else if(recupDataJSON.weather[0].description === "ciel dégagé"){
         const typeOfCloud = document.getElementById("5");
         typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
         typeOfCloud.style.color = "#FFD000";
         typeOfCloud.style.fontSize = "3em";
+        typeOfCloud.style.opacity = "1";
         typeOfCloud.style.transition = "2s";
     }else if(recupDataJSON.weather[0].description === "partiellement nuageux" || recupDataJSON.weather[0].description === "peu nuageux"){
         const typeOfCloud = document.getElementById("4");
         typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
         typeOfCloud.style.color = "#C3B46E";
         typeOfCloud.style.fontSize = "3em";
+        typeOfCloud.style.opacity = "1";
         typeOfCloud.style.transition = "2s";
     }else if(recupDataJSON.weather[0].description === "bruine légère" || recupDataJSON.weather[0].description === "brume" || recupDataJSON.weather[0].description === "brouillard"){
         const typeOfCloud = document.getElementById("2bis");
         typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
         typeOfCloud.style.color = "gray";
         typeOfCloud.style.fontSize = "3em";
+        typeOfCloud.style.opacity = "1";
         typeOfCloud.style.transition = "2s";
     }else if(recupDataJSON.weather[0].description === "pluie modérée"){
         const typeOfCloud = document.getElementById("1");
         typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
         typeOfCloud.style.color = "#4386FF";
         typeOfCloud.style.fontSize = "3em";
+        typeOfCloud.style.opacity = "1";
         typeOfCloud.style.transition = "2s";
     }else if(recupDataJSON.weather[0].description === "légère pluie"){
         const typeOfCloud = document.getElementById("2");
         typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
         typeOfCloud.style.color = "#A5BCE5";
         typeOfCloud.style.fontSize = "3em";
+        typeOfCloud.style.opacity = "1";
         typeOfCloud.style.transition = "2s";
     }else if(recupDataJSON.weather[0].description === "orage"){
         const typeOfCloud = document.getElementById("bolt");
         typeOfCloud.title = "Actuellement " + recupDataJSON.weather[0].description;
         typeOfCloud.style.color = "#FFD000";
         typeOfCloud.style.fontSize = "3em";
+        typeOfCloud.style.opacity = "1";
         typeOfCloud.style.transition = "2s";
     }
 
         // RESTE ECLAIRCIE, ORAGE et NEIGE A DEFINIR
 
 // ---------------------------------------------------------------------------------------------------------------------------------
+// VERIFICATION ET AFFICHAGE FAVORIS
 
-    if(localStorage.getItem("fav1") != null && localStorage.getItem("fav2") == null){ // VERIFICATION ET AFFICHAGE FAVORIS
+    if(localStorage.getItem("fav1") != null && localStorage.getItem("fav2") == null){ 
         const fav1 = document.getElementById("fav1");
         fav1.innerHTML = localStorage.getItem("fav1");
     }else if(localStorage.getItem("fav1") != null && localStorage.getItem("fav2") != null){

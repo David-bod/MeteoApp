@@ -1,0 +1,383 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("font/Raleway/Raleway-VariableFont_wght.ttf"), url("font/Raleway/Raleway-Italic-VariableFont_wght.ttf");
+  }
+
+body, h1, h2, h3, p, figure, img, ul{
+    margin : 0px;
+}
+
+ul{
+    padding: 0px;
+}
+
+li{
+    list-style: none;
+}
+
+html{
+    font-family: Raleway;
+}
+
+/* Header style */
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url("/img/clouds-1920x1280.jpg") no-repeat center center;
+    background-color: black;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+    box-shadow: 0px 0px 3px black;
+}
+
+/* Liste de suggestions */
+
+#suggestionsEtDarkMode{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#suggestions{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 0px;
+}
+
+#suggestions li{
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 0.8em;
+}
+
+#s1, #s2, #s3, #s4, #s5, #s6, #s7, #s8{
+    text-decoration: none;
+    color: black;
+}
+
+#s1:hover, #s2:hover, #s3:hover, #s4:hover, #s5:hover, #s6:hover, #s7:hover, #s8:hover{
+    text-decoration: none;
+    color: rgb(100, 90, 138);
+    transition: .5s;
+}
+
+/* bouton mode clair/sombre */
+
+#mode{
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 0px;
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 2px 5px 2px 5px;
+    cursor: pointer;
+}
+
+#mode:hover{
+    background-color: rgb(0, 0, 0, 0.5);
+    color: white;
+    transition: .5s;
+}
+
+/* Titre et div de recherches */
+
+h1{
+    font-size: 3.4em;
+    margin-top: 75px;
+    margin-bottom: 25px;
+}
+
+#bloc-1-search{
+    display: flex;
+}
+
+#form-search{
+    display: flex;
+}
+
+#choice{
+    width: 300px;
+    height: 30px;
+    padding: 5px 5px 5px 10px;
+    background-color: rgb(255, 255, 255);
+    border: 0px;
+    color: black;
+    font-weight: bold;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+#choice::placeholder{
+    color: rgb(167, 167, 167);
+}
+
+#buttonSearch{
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 40px;
+    border: 0px;
+    background-color: rgb(255, 255, 255);
+    padding: 0px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+#suggestionsGeo{
+    font-size: 1.3em;
+    margin-right: 3px;
+}
+
+#buttonSearch:hover{
+    background-color: rgb(70, 87, 116);
+    color: white;
+    transition: .5s;
+    cursor: pointer;
+}
+
+#GPS{
+    border: 0px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: rgb(200, 220, 255);
+    cursor: pointer;
+}
+
+#GPS:hover{
+    background-color: rgb(70, 87, 116);
+    color: white;
+    transition: .5s;
+}
+
+/* SPAN suggestions de villes */
+
+#cityGeo, #cityGeo2{
+    position: absolute;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    height: 30px;
+    width: 315px;
+    border: 1px solid rgb(0, 0, 0);
+    cursor: pointer;
+    display: none;
+    margin-top: 40px;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+    font-weight: bold;
+}
+
+#cityGeo2{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-top: 70px;
+}
+
+/* Liste des favoris */
+
+.container_favoris{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.container_favoris h3{
+    font-size: 1em;
+}
+
+.favContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.favContainer li, .favContainer p{
+    margin-right: 10px;
+    margin-left: 15px;
+    list-style: none;
+}
+
+.favContainer a{
+    text-decoration: none;
+}
+
+.favContainer a:visited{
+    color: black;
+}
+
+.delete{
+    color: rgb(180, 0, 0);
+}
+
+/* Bloc affichage ville en direct */
+
+#bloc-ville{
+    display: flex;
+    align-items: center;
+    margin-top: 70px;
+}
+
+#bloc-ville i{
+    font-size: 1.9em;
+    color: rgb(0, 12, 80);
+}
+
+h2{
+    font-size: 2.7em;
+    margin-right: 20px;
+}
+
+/* Bloc Main */
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#bloc-1-main{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+#bloc-11-main{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+#bloc-2-main{
+    display: flex;
+    width: 90%;
+    max-width: 800px;
+}
+
+/* 2 blocs gauche/droite */
+
+#temps-actuel, #pression-atmo{
+    margin-bottom: 15px;
+}
+
+#temps-actuel{
+    text-align: center;
+}
+
+#vitesse-vent, #taux-humidite{
+    margin-top: 20px;
+}
+
+/* Corps d'infos (température...) */
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px;
+    margin: auto;
+}
+
+.container_weather{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    padding: 15px;
+    width: 25%;
+    min-width: 300px;
+    font-size: 1.1em;
+}
+
+.divProgress{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+#progress, #progress2, #progress3, #progress4{
+    border-radius: 2px;
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: 1.5s;
+}
+
+/* Footer : Boutons bas de page */
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+footer p{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 660px) {
+    #suggestionsEtDarkMode{
+        flex-wrap: wrap;
+    }
+
+    h1{
+        font-size: 2em;
+    }
+
+    /* Barre de recherche de ville */
+
+    #choice{
+        width: 112px;
+    }
+
+    h2{
+        font-size: 1.2em;
+    }
+
+    /* SPAN proposition de villes */
+
+    #cityGeo, #cityGeo2{
+        position: absolute;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        height: 30px;
+        width: 127px;
+        border: 1px solid rgb(0, 0, 0);
+        cursor: pointer;
+        display: none;
+        margin-top: 40px;
+        z-index: 1;
+        overflow: hidden;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    #cityGeo2{
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        margin-top: 70px;
+    }
+
+    /* 2 blocs meteo */
+
+    #bloc-2-main{
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Footer */
+
+    footer div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+}
