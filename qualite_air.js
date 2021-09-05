@@ -12,6 +12,7 @@ function fonctionGetQualite(){
                 if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
                     resolve(JSON.parse(this.responseText))
                     affichageQualite();
+                    console.log("Requête QA ok");
                 } else {
                     reject = console.log("Erreur lors de la récupération des données pour la qualité de l'air");
                     return
@@ -128,5 +129,6 @@ async function affichageQualite(){
 
         titreQualite.style.display = "block";
         iconsQualite.style.display = "none";
+        console.log("Désactivation");
     }
 }
