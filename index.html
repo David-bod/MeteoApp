@@ -10,21 +10,21 @@
         <link rel="stylesheet" href="index_button.css">
         <link rel="icon" type="image/png" href="icon/png-icon-sun2.png">
             
-        <title id="title"></title> <!-- Titre injecté par JS -->
+        <title id="title">MétéoApp</title> <!-- Titre injecté par JS -->
     </head>
 <body>
     <header>
         <div id="suggestionsEtDarkMode"> <!-- Liste des villes en suggestions -->
-            <ul id="suggestions">
-                <a id="s1" href="#" onclick="cannes()"><li id="value1">Cannes</li></a>
-                <a id="s2" href="#" onclick="marseille()"><li id="value2">Marseille</li></a>
-                <a id="s3" href="#" onclick="paris()"><li id="value3">Paris</li></a>
-                <a id="s4" href="#" onclick="strasbourg()"><li id="value4">Strasbourg</li></a>
-                <a id="s5" href="#" onclick="brest()"><li id="value5">Brest</li></a>
-                <a id="s6" href="#" onclick="lyon()"><li id="value6">Lyon</li></a>
-                <a id="s7" href="#" onclick="cherbourg()"><li id="value7">Cherbourg</li></a>
-                <a id="s8" href="#" onclick="saintL()"><li id="value8">Lille</li></a>
-            </ul>
+            <menu id="suggestions">
+               <li id="value1"><a id="s1" href="#" onclick="cannes()">Cannes</a></li>
+                <li id="value2"><a id="s2" href="#" onclick="marseille()">Marseille</a></li>
+                <li id="value3"><a id="s3" href="#" onclick="paris()">Paris</a></li>
+                <li id="value4"><a id="s4" href="#" onclick="strasbourg()">Strasbourg</a></li>
+                <li id="value5"><a id="s5" href="#" onclick="brest()">Brest</a></li>
+                <li id="value6"><a id="s6" href="#" onclick="lyon()">Lyon</a></li>
+                <li id="value7"><a id="s7" href="#" onclick="cherbourg()">Cherbourg</a></li>
+                <li id="value8"><a id="s8" href="#" onclick="saintL()">Lille</a></li>
+            </menu>
             <div> <!-- Bouton mode clair ou sombre -->
                 <button type="submit" name="mode" id="mode" title="Changer de couleur"><span id="darkText">Non disponible </span><i class="fas fa-sun"></i></button>
             </div>
@@ -42,20 +42,20 @@
             <!-- Bouton pour localiser la position de l'utilisateur -->
             <button onclick="gpsVerif()" name="gpsCoords" value="Météo par GPS" id="GPS"><span>Me localiser <i class="fas fa-search-location"></i></span></button>
         </div>
-        <div> <!-- Liste des favoris en dessous de la barre de recherche -->
-            <ul class="container_favoris" id="bc3">
-                <h3>Vos favoris : </h3>
+        <div id="container-div-favoris"> <!-- Liste des favoris en dessous de la barre de recherche -->
+            <h3>Vos favoris : </h3>
+            <div class="container_favoris" id="bc3">
                 <div class="favContainer">
-                    <a href="#" onclick="fav1Weather()" title="Charger la ville"><li id="fav1"></li></a> <a href="#" onclick="deleteFav1()" title="Supprimer la ville des favoris"><i class="fas fa-times delete"></i></a>
+                    <a href="#" onclick="fav1Weather()" title="Charger la ville"><span id="fav1"></span></a> <a href="#" onclick="deleteFav1()" title="Supprimer la ville des favoris"><i class="fas fa-times delete"></i></a>
                 </div>
                 <div class="favContainer">
-                    <a href="#" onclick="fav2Weather()" title="Charger la ville"><li id="fav2"></li></a> <a href="#" onclick="deleteFav2()" title="Supprimer la ville des favoris"><i class="fas fa-times delete"></i></a>
+                    <a href="#" onclick="fav2Weather()" title="Charger la ville"><span id="fav2"></span></a> <a href="#" onclick="deleteFav2()" title="Supprimer la ville des favoris"><i class="fas fa-times delete"></i></a>
                 </div>
-            </ul>
+            </div>
         </div>
         <div id="bloc-ville">
-            <h2 id="ville">Ville ici</h2> <!-- Ville actuelle affichée à l'écran -->
-            <i class="far fa-play-circle"></i>
+            <i class="fas fa-map-marker-alt"></i>
+            <h2 id="ville">Ville non selectionnée</h2> <!-- Ville actuelle affichée à l'écran -->
         </div>
     </header>
     <main>
@@ -71,41 +71,44 @@
                 <i id="5" title="Soleil" class="fas fa-sun"></i>
             </div>
         </div>
+        <div id="bloc-qualite"> <!-- Qualité de l'air -->
+            <h5 id="qualite-air-title">Données GPS requises pour la qualité de l'air</h5>
+        </div>
         <div id="bloc-2-main">
             <div class="container">
-                <ul class="container_weather" id="bc1">
-                    <li id="temps-actuel"></li>
+                <div class="container_weather" id="bc1">
+                    <span id="temps-actuel"></span>
                     <!-- <li id="li5"></li> / Non utilisé -->
-                    <li id="couverture-ciel"></li>
+                    <span id="couverture-ciel"></span>
                     <div class="divProgress"> <!-- Couverture du ciel -->
                         <i title="Ensoleillé" class="fas fa-sun"></i>
                         <progress id="progress" title="Couverture du ciel" class="progressGeneral" max="100"></progress>
                         <i title="Nuageux" class="fas fa-cloud"></i>
                     </div>
-                    <li id="vitesse-vent"></li> <!-- Vitesse du vent -->
+                    <span id="vitesse-vent"></span> <!-- Vitesse du vent -->
                     <div class="divProgress">
                         <i class="fab fa-pagelines"></i>
                         <progress id="progress2" title="Vent (max : 130km/h)" class="progressWind" max="130"></progress>
                         <i class="fas fa-wind"></i>
                     </div>
-                </ul>
+                </div>
             </div>
             <div class="container">
-                <ul class="container_weather" id="bc2">
-                    <li id="pression-atmo"></li> <!-- Pression atmosphérique -->
-                    <li id="temperature"></li> <!-- Température -->
+                <div class="container_weather" id="bc2">
+                    <span id="pression-atmo"></span> <!-- Pression atmosphérique -->
+                    <span id="temperature"></span> <!-- Température -->
                     <div class="divProgress">
                         <i class="fas fa-temperature-low"></i>
-                        <progress id="progress3" title="Température (de -15°C à 50°C)" class="progressTemp" max="65" value=""></progress>
+                        <progress id="progress3" title="Température (de -15°C à 50°C)" class="progressTemp" max="65"></progress>
                         <i class="fas fa-temperature-high"></i>
                     </div>
-                    <li id="taux-humidite"></li> <!-- Taux d'humidité -->
+                    <span id="taux-humidite"></span> <!-- Taux d'humidité -->
                     <div class="divProgress">
                         <i class="fas fa-tint-slash"></i>
-                        <progress id="progress4" title="Humidité dans l'air" class="progressHumidite" max="100" value=""></progress>
+                        <progress id="progress4" title="Humidité dans l'air" class="progressHumidite" max="100"></progress>
                         <i class="fas fa-tint"></i>
                     </div>
-                </ul>
+                </div>
             </div>
         </div>
     </main>
@@ -124,11 +127,13 @@
         </div>
         <p id="version">Version 04 Septembre 2021</p>
     </footer>
-    <!-- Injection des pages Javascript -->
-    <script type="text/javascript" src="script.js"></script>
-    <script type="text/javascript" src="suggestions.js"></script>
-    <script type="text/javascript" src="gps_coordonnees.js"></script>
-    <script type="text/javascript" src="modeAffichage.js"></script>
-    <script type="text/javascript" src="autocompletion.js"></script>
+    <!-- Début injection Javascript -->
+    <script src="script.js"></script>
+    <script src="suggestions.js"></script>
+    <script src="gps_coordonnees.js"></script>
+    <script src="modeAffichage.js"></script>
+    <script src="autocompletion.js"></script>
+    <script src="qualite_air.js"></script>
+    <!-- Fin injection Javascript -->
 </body>
 </html>

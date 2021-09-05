@@ -2,7 +2,7 @@
 // RECUPERATION DES DONNEES AVEC L'API GEO
 
 function getGeo(){
-if(localStorage.getItem("valInput") == null){
+if(localStorage.getItem("valInput").length < 1){
     localStorage.setItem("valInput", "0");
     console.log("Pas de recherche en cours.");
 }else

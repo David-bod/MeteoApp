@@ -7,7 +7,7 @@ if(localStorage.getItem("city") == null){
     localStorage.setItem("city", "Paris");
     location.reload();
 }else{ // SINON LANCER LA FONCTION
-    fonctionGetApi(); 
+    fonctionGetApi();
 }
 
 // ---------------------------------------------------------------------------------------------------------------------------------
@@ -268,7 +268,7 @@ function fav2Weather(){
 
 function verif(){
     let inputText = document.getElementById("choice").value;
-    let regex = /^[a-zA-Z\-]+$/;
+    let regex = /^[a-zA-Z\- ]+$/;
     console.log(inputText);
 
     if (!regex.test(inputText)) {
