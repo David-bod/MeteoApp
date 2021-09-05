@@ -179,6 +179,8 @@ h1{
 
 #container-div-favoris{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: flex-end;
     margin-top: 10px;
 }
@@ -257,6 +259,36 @@ main{
 }
 
 /* Bloc qualité de l'air */
+
+#icons-qualite{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#icons-qualite h5{
+    margin-right: 15px;
+}
+
+.green{
+    color: rgb(0, 0, 0);
+    margin-left: 5px;
+}
+
+.red{
+    color: rgb(0, 0, 0);
+    margin-right: 10px;
+}
+
+.active{
+    margin-right: 5px;
+}
+
+.desactive{
+    display: none;
+    margin-right: 5px;
+    color: rgb(0, 173, 0);
+}
 
 
 

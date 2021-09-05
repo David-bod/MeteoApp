@@ -73,6 +73,27 @@
         </div>
         <div id="bloc-qualite"> <!-- Qualité de l'air -->
             <h5 id="qualite-air-title">Données GPS requises pour la qualité de l'air</h5>
+            <div id="icons-qualite"> <!-- Echelle de notation qualité de l'air -->
+                <h5 id="qualite-data"></h5>
+                <i title="Qualité mauvaise" class="fas fa-thumbs-down red"></i>
+
+                <i id="q1" class="far fa-circle active"></i>
+                <i id="p1" class="fas fa-circle desactive"></i>
+
+                <i id="q2" class="far fa-circle active"></i>
+                <i id="p2" class="fas fa-circle desactive"></i>
+
+                <i id="q3" class="far fa-circle active"></i>
+                <i id="p3" class="fas fa-circle desactive"></i>
+
+                <i id="q4" class="far fa-circle active"></i>
+                <i id="p4" class="fas fa-circle desactive"></i>
+
+                <i id="q5" class="far fa-circle active"></i>
+                <i id="p5" class="fas fa-circle desactive"></i>
+
+                <i title="Qualité très bonne" class="fas fa-thumbs-up green"></i>
+            </div>
         </div>
         <div id="bloc-2-main">
             <div class="container">
@@ -87,9 +108,9 @@
                     </div>
                     <span id="vitesse-vent"></span> <!-- Vitesse du vent -->
                     <div class="divProgress">
-                        <i class="fab fa-pagelines"></i>
+                        <i title="Pas de vent" class="fab fa-pagelines"></i>
                         <progress id="progress2" title="Vent (max : 130km/h)" class="progressWind" max="130"></progress>
-                        <i class="fas fa-wind"></i>
+                        <i title="Vent très fort" class="fas fa-wind"></i>
                     </div>
                 </div>
             </div>
@@ -98,15 +119,15 @@
                     <span id="pression-atmo"></span> <!-- Pression atmosphérique -->
                     <span id="temperature"></span> <!-- Température -->
                     <div class="divProgress">
-                        <i class="fas fa-temperature-low"></i>
+                        <i title="Températures basses" class="fas fa-temperature-low"></i>
                         <progress id="progress3" title="Température (de -15°C à 50°C)" class="progressTemp" max="65"></progress>
-                        <i class="fas fa-temperature-high"></i>
+                        <i title="Températures élevées" class="fas fa-temperature-high"></i>
                     </div>
                     <span id="taux-humidite"></span> <!-- Taux d'humidité -->
                     <div class="divProgress">
-                        <i class="fas fa-tint-slash"></i>
+                        <i title="Taux d'humidité faible" class="fas fa-tint-slash"></i>
                         <progress id="progress4" title="Humidité dans l'air" class="progressHumidite" max="100"></progress>
-                        <i class="fas fa-tint"></i>
+                        <i title="Taux d'humidité élevé" class="fas fa-tint"></i>
                     </div>
                 </div>
             </div>
@@ -125,7 +146,7 @@
             <a href="https://geo.api.gouv.fr/decoupage-administratif/communes" title="Data infos" target="_blank" class="dataInfos">Données des villes</a>
             <a href="https://fontawesome.com/" title="Intégration d'icons gratuit" target="_blank" class="dataInfos">Icons utilisés sur l'application</a>
         </div>
-        <p id="version">Version 04 Septembre 2021</p>
+        <p id="version">Version 05 Septembre 2021</p>
     </footer>
     <!-- Début injection Javascript -->
     <script src="script.js"></script>
