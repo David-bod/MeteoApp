@@ -1,4 +1,4 @@
-const urlMap = "http://api.openweathermap.org/data/2.5/air_pollution?lat=" + localStorage.getItem("lat") + "&lon=" + localStorage.getItem("long") + "&appid=83e43e88bae5408164e0f42de0a475a4";
+const urlMap = "https://api.openweathermap.org/data/2.5/air_pollution?lat=" + localStorage.getItem("lat") + "&lon=" + localStorage.getItem("long") + "&appid=83e43e88bae5408164e0f42de0a475a4";
 
 fonctionGetQualite();
 
@@ -12,7 +12,6 @@ function fonctionGetQualite(){
                 if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
                     resolve(JSON.parse(this.responseText))
                     affichageQualite();
-                    console.log("Requête QA ok");
                 } else {
                     reject = console.log("Erreur lors de la récupération des données pour la qualité de l'air");
                     return
@@ -129,6 +128,5 @@ async function affichageQualite(){
 
         titreQualite.style.display = "block";
         iconsQualite.style.display = "none";
-        console.log("Désactivation");
     }
 }
