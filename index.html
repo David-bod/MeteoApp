@@ -14,6 +14,12 @@
     </head>
 <body>
     <header>
+        <div id="erreur">
+            <span id="erreur_texte"></span>
+            <a id="icon_erreur" href="#" onclick="supprimerErreur()">
+                <i class="fas fa-times"></i>
+            </a>
+        </div>
         <div id="suggestionsEtDarkMode"> <!-- Liste des villes en suggestions -->
             <menu id="suggestions">
                <li id="value1"><a id="s1" href="#" onclick="cannes()">Cannes</a></li>
@@ -153,7 +159,7 @@
             <a href="https://geo.api.gouv.fr/decoupage-administratif/communes" title="Data infos" target="_blank" class="dataInfos">Données des villes</a>
             <a href="https://fontawesome.com/" title="Intégration d'icons gratuit" target="_blank" class="dataInfos">Icons utilisés sur l'application</a>
         </div>
-        <p id="version">Version 05 Septembre 2021</p>
+        <p id="version">Version 06 Septembre 2021</p>
     </footer>
     <!-- Début injection Javascript -->
     <script src="script.js"></script>
