@@ -1,4 +1,3 @@
-console.log("qualiteAir.js chargé");
 const urlMap = "https://api.openweathermap.org/data/2.5/air_pollution?lat=" + localStorage.getItem("lat") + "&lon=" + localStorage.getItem("long") + "&appid=83e43e88bae5408164e0f42de0a475a4";
 
 fonctionGetQualite();

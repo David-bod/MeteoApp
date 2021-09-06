@@ -242,6 +242,7 @@ function ajouterFavoris(){
 // GESTION DES FAVORIS AVEC LE COEUR + SUPPRESSION
 
 function gestionFavoris(){
+    console.log("gestionFavoris()");
     const ajouterFavorisN = document.getElementById("ajouterFavoris");
     const favorisActuel = document.getElementById("favorisActuel");
     
@@ -250,11 +251,15 @@ function gestionFavoris(){
         favorisActuel.title = "Supprimer cette ville des favoris";
 
         ajouterFavorisN.style.display = "none";
+        console.log("Favoris actuel");
     }else if(localStorage.getItem("city") !== localStorage.getItem("fav1") || localStorage.getItem("city") !== localStorage.getItem("fav2")){
         ajouterFavorisN.style.display = "block";
         ajouterFavorisN.title = "Ajouter cette ville aux favoris";
 
         favorisActuel.style.display = "none";
+        console.log("Ajouter aux favoris");
+    }else{
+        console.log("Erreur dans la gestion des favoris.");
     }
 }
 
@@ -263,9 +268,11 @@ function gestionFavoris(){
 function suppressionCoeur(){
     if(localStorage.getItem("city") == localStorage.getItem("fav1")){
         localStorage.removeItem("fav1");
+        console.log("Fav1 Supprimé");
         location.reload();
     }else if(localStorage.getItem("city") == localStorage.getItem("fav2")){
         localStorage.removeItem("fav2");
+        console.log("Fav2 Supprimé");
         location.reload();
     }
 }

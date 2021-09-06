@@ -224,6 +224,10 @@ h1{
     text-decoration: none;
 }
 
+#ajouterFavoris, #favorisActuel{
+    display: none;
+}
+
 #favorisActuel{
     background: linear-gradient(40deg, #ff0000, #b90000);
     padding-right: 1px;
@@ -245,10 +249,6 @@ h1{
     background: rgb(0, 0, 0);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-}
-
-#ajouterFavoris, #favorisActuel{
-    display: none;
 }
 
 /* Bloc affichage ville en direct */
