@@ -218,6 +218,39 @@ h1{
     color: rgb(180, 0, 0);
 }
 
+/* Gestion des favoris avec l'icon coeur */
+
+.lienFavoris{
+    text-decoration: none;
+}
+
+#ajouterFavoris, #favorisActuel{
+    display: none;
+}
+
+#favorisActuel{
+    background: linear-gradient(40deg, #ff0000, #b90000);
+    padding-right: 1px;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+#ajouterFavoris:hover{
+    transition: .7s;
+    background: linear-gradient(40deg, #ff0000, #b90000);
+    padding-right: 2px;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    transform: scale(1.15);
+}
+
+#favorisActuel:hover{
+    transition: .7s;
+    background: rgb(0, 0, 0);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
 /* Bloc affichage ville en direct */
 
 #bloc-ville{

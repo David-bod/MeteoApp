@@ -68,6 +68,7 @@ async function affichageQualite(){
         p3.style.color = "#27AE60";
         p4.style.color = "#27AE60";
         p5.style.color = "#27AE60";
+        
 
     }else if(qualiteAir.list[0].main.aqi == 2){
         qualiteData.innerHTML = "Qualité de l'air : ( 4/5 ) ";

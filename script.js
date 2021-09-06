@@ -44,6 +44,7 @@ async function fonctionRecupData(){ // RECUPERATION DES DONNEES
         localStorage.setItem("mode", "dark");
     }
 
+    gestionFavoris(); // Gestion coeur favoris
     initIcons(); // initialisation des icons à 1em
     console.log("Ville affichée : " + localStorage.getItem("city") + ".");
 
@@ -234,6 +235,38 @@ function ajouterFavoris(){
         }
     }else if(localStorage.getItem("fav1") == localStorage.getItem("city") || localStorage.getItem("fav2") == localStorage.getItem("city")){
         alert("Cette ville est déjà dans votre liste de favoris.")
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------------------
+// GESTION DES FAVORIS AVEC LE COEUR + SUPPRESSION
+
+function gestionFavoris(){
+    const ajouterFavorisN = document.getElementById("ajouterFavoris");
+    const favorisActuel = document.getElementById("favorisActuel");
+    
+    if(localStorage.getItem("city") == localStorage.getItem("fav1") || localStorage.getItem("city") == localStorage.getItem("fav2")){
+        favorisActuel.style.display = "block"; // Favoris en cours
+        favorisActuel.title = "Supprimer cette ville des favoris";
+
+        ajouterFavorisN.style.display = "none";
+    }else if(localStorage.getItem("city") !== localStorage.getItem("fav1") || localStorage.getItem("city") !== localStorage.getItem("fav2")){
+        ajouterFavorisN.style.display = "block";
+        ajouterFavorisN.title = "Ajouter cette ville aux favoris";
+
+        favorisActuel.style.display = "none";
+    }
+}
+
+// SUPPRESSION COEUR
+
+function suppressionCoeur(){
+    if(localStorage.getItem("city") == localStorage.getItem("fav1")){
+        localStorage.removeItem("fav1");
+        location.reload();
+    }else if(localStorage.getItem("city") == localStorage.getItem("fav2")){
+        localStorage.removeItem("fav2");
+        location.reload();
     }
 }
 

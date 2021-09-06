@@ -56,6 +56,13 @@
         <div id="bloc-ville">
             <i class="fas fa-map-marker-alt"></i>
             <h2 id="ville">Ville non selectionnée</h2> <!-- Ville actuelle affichée à l'écran -->
+            <!-- Ajout aux favoris avec l'icon coeur -->
+            <a href="#" class="lienFavoris" onclick="ajouterFavoris()">
+                <i id="ajouterFavoris" class="far fa-heart"></i> <!-- Ajouter un favoris -->
+            </a>
+            <a href="#" class="lienFavoris" onclick="suppressionCoeur()">
+                <i id="favorisActuel" class="fas fa-heart"></i> <!-- Favoris ajouté -->
+            </a>
         </div>
     </header>
     <main>
